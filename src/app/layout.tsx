@@ -19,15 +19,30 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   robots: { index: true, follow: true },
-  icons: {
-    icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
-    apple: '/favicon/apple-touch-icon.png',
-  },
   verification: {
     google: siteConfig.googleSiteVerificationId,
   },
+  icons: {
+    icon: '/favicon/favicon.ico',
+    shortcut: '/favicon/favicon-96x96.png',
+    apple: '/favicon/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'icon',
+        url: '/favicon/favicon.svg',
+        type: 'image/svg+xml',
+      },
+      {
+        rel: 'manifest',
+        url: '/favicon/site.webmanifest',
+      },
+    ],
+  },
+  appleWebApp: {
+    title: 'AllboutAJ',
+  },
 };
+
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (

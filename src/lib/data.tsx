@@ -29,82 +29,129 @@ export const links = [
 
 export const projectsData = [
   {
-    image: '/images/project-2.webp',
-    title: 'Next-starter',
-    description:
-      'A Next.js starter template, packed with features like TypeScript, Tailwind CSS, Next-auth, Eslint, Stripe, testing tools and more.',
-    technologies: ['Next.js', 'Tailwind', 'Shadcn/ui', 'Next-auth', 'Prisma'],
-    links: {
-      preview: 'https://next-starter-skolaczk.vercel.app',
-      github: 'https://github.com/Skolaczk/next-starter',
-      githubApi: 'https://api.github.com/repos/Skolaczk/next-starter',
-    },
+    title: 'Rentals Kamloops',
+    description: 'Property listing site with PDF generation built on WordPress using the Estatik plugin.',
+    cover: '/images/rentals/1.webp',
+    screenshots: [
+      '/images/rentals/1.webp',
+      '/images/rentals/2.webp',
+      '/images/rentals/3.webp',
+      '/images/rentals/4.webp',
+    ],
+    technologies: ['WordPress', 'PHP', 'Estatik', 'Tailwind'],
   },
   {
-    image: '/images/project-1.webp',
-    title: 'SocialHub',
-    description:
-      'SocialHub is a next-generation social media app developed using Next.js and Nest.js.',
-    technologies: ['Next.js', 'TypeScript', ' Nest.js', 'Tailwind', 'Prisma'],
-    links: {
-      preview: 'https://socialhub-ms.vercel.app/',
-      github: 'https://github.com/Skolaczk/SocialHub',
-      githubApi: 'https://api.github.com/repos/Skolaczk/SocialHub',
-    },
+    title: 'Advanced Plumbing Kamloops',
+    description: 'Static website hosted on DigitalOcean with a secure contact form and PDF form submission.',
+    cover: '/images/plumbing/1.webp',
+    screenshots: [
+      '/images/plumbing/1.webp',
+      '/images/plumbing/2.webp',
+      '/images/plumbing/3.webp',
+      '/images/plumbing/4.webp',
+    ],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+  },
+  {
+    title: 'Hodder Construction',
+    description: 'Company landing page built with Tailwind CSS and PHP, deployed on DigitalOcean.',
+    cover: '/images/hodder/1.webp',
+    screenshots: ['/images/hodder/1.webp'],
+    technologies: ['Tailwind CSS', 'PHP', 'DigitalOcean'],
+  },
+  {
+    title: 'Employee Timesheet App',
+    description: 'Internal React + Node.js dashboard for job tracking, export to PDF, and database backup.',
+    cover: '/images/employee/1.webp',
+    screenshots: [
+      '/images/employee/1.webp',
+      '/images/employee/2.webp',
+    ],
+    technologies: ['React', 'Node.js', 'MySQL', 'Tailwind CSS'],
+  },
+  {
+    title: 'Raven Reads Books',
+    description: 'Shopify theme customization, marketing pages, and QA testing for Canadian Indigenous book club.',
+    cover: '/images/raven/1.webp',
+    screenshots: ['/images/raven/1.webp'],
+    technologies: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
   },
 ] as const;
 
+
+
 export const experiencesData = [
   {
-    title: 'Web developer intern',
-    company: 'WEB-BOX, Tarnobrzeg PL',
-    description:
-      'During this internship, I focused on two key areas: creating Wordpress plugins and managing website content, plugins, and settings.',
-    period: '2023',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Wordpress'],
+    title: 'Full Stack Web Developer',
+    company: 'Hodder Construction, Kamloops BC',
+    description: 'Led full-stack development for multiple production-grade web projects.',
+    period: 'Aug 2024 – May 2025',
+    technologies: [
+      'React',
+      'Node.js',
+      'PHP',
+      'MySQL',
+      'PostgreSQL',
+      'Strapi',
+      'Next.js',
+      'Tailwind CSS',
+      'DigitalOcean',
+      'WordPress',
+    ],
+    projects: [
+      {
+        name: 'Advanced Plumbing',
+        summary:
+          'Static site (HTML, CSS, JS, PHP) hosted on DigitalOcean. Integrated reCAPTCHA, SSL, and PDF form submission.',
+      },
+      {
+        name: 'Digital Timesheet App',
+        summary:
+          'Internal dashboard built with Node.js, React, and MySQL for job logging, PDF exports, and backups.',
+      },
+      {
+        name: 'EVStore',
+        summary:
+          'Tesla parts e-commerce platform using Next.js, Strapi, PostgreSQL, Stripe, and CI/CD deployment.',
+      },
+      {
+        name: 'Rentals Kamloops',
+        summary:
+          'WordPress property listing site with Estatik plugin and PDF forms.',
+      },
+      {
+        name: 'Hodder Construction',
+        summary:
+          'Full-stack PHP site with Tailwind CSS, Git versioning, and automated deployment pipelines.',
+      },
+    ],
   },
   {
-    title: 'Frontend developer & UI designer',
-    company: 'Freelancing, remote',
+    title: 'Technical Support Specialist',
+    company: 'Teleperformance (Apple Support), Remote',
     description:
-      'As a freelancer, I specialized in graphic design using Figma and website development using Next.js with Sanity CMS. I undertook projects independently, from design conceptualization to final implementation, ensuring client satisfaction.',
-    period: '2023 - 2024',
-    technologies: ['Next.js', 'TypeScript', 'Sanity CMS', 'Tailwind'],
+      'Supported Apple customers via Safeview and CRM systems. Resolved hardware/software issues across iPhones, iPads, and Macs. Promoted to Mac Specialist.',
+    period: 'Oct 2023 – Aug 2024',
+    technologies: ['Apple Ecosystem', 'Customer Support', 'Safeview', 'CRM'],
   },
   {
-    title: 'Frontend developer intern',
-    company: 'Chop-chop, remote',
+    title: 'Intern Web Developer',
+    company: 'Raven Reads, Kamloops BC',
     description:
-      'During my internship at Chop-Chop, I collaborated with an experienced IT team, focusing on tasks in Next.js. This experience provided valuable insights into teamwork and advanced my proficiency in Next.js.',
-    period: '2024',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
+      'Built responsive UIs, customized Shopify themes, added 100+ products, and launched marketing pages. Contributed to QA testing and live support.',
+    period: 'Feb 2023 – Sep 2023',
+    technologies: ['Shopify', 'HTML5', 'CSS3', 'JavaScript', 'QA', 'Agile'],
   },
   {
-    title: 'Frontend developer & UI designer',
-    company: 'GeoScan, remote',
-    description: (
-      <>
-        At GeoScan, I collaborate with frontend, backend, and GIS specialists to
-        build{' '}
-        <Link
-          className={cn(
-            buttonVariants({ variant: 'link' }),
-            'm-0 h-fit p-0 text-base'
-          )}
-          href="https://geoscan-app.com"
-          target="_blank"
-        >
-          geoscan-app.com
-        </Link>{' '}
-        — a platform for generating real estate reports. I’m responsible for
-        developing and maintaining the frontend, as well as designing UI/UX to
-        ensure a clear and intuitive user experience.
-      </>
-    ),
-    period: '2024 - present',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'Leaflet'],
+    title: 'Freelance Developer',
+    company: 'Self-employed, Remote',
+    description:
+      'Created scalable web applications and e-commerce platforms for clients with full ownership of design, frontend, backend, and deployment.',
+    period: '2022 – Present',
+    technologies: ['Next.js', 'MongoDB', 'Stripe', 'TypeScript', 'Tailwind'],
   },
 ] as const;
+
 
 export const skillsData = [
   { icon: <Icons.html className="size-12" /> },

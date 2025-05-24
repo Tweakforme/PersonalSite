@@ -20,18 +20,17 @@ export const About = () => {
     >
       <SectionHeading heading="About Me" />
       <div className="-mt-5 max-w-2xl text-center leading-7">
-        <p className="mb-4">
-          I&apos;m Michał Skolak, I&apos;m a front-end developer from Poland.
-          I&apos;ve been learning programming for over 3 years. After I started
-          high school, I decided to pursue my passion for programming. My
-          favorite part of programming is the problem-solving aspect. I love the
-          feeling of finally figuring out a solution to a problem. I&apos;ve had
-          the opportunity to work on several exciting projects during my
-          learning journey, ranging from personal projects to collaborative
-          ventures. My core stack is React, Next.js, TypeScript, and Tailwind
-          CSS. I am also familiar with Nest.js and Prisma. I&apos;m always
-          looking to learn new technologies.
-        </p>
+       <p className="mb-4">
+  I'm Adhvait Jadav — a full-stack developer with a background in business administration and currently completing my fourth year of Computer Science online.  
+  I started my journey self-taught, learning HTML, CSS, and Java, driven by a curiosity for how things work under the hood. That foundation eventually led to a focused pursuit of modern web development.
+
+  I enjoy the balance between structure and creativity — whether it's crafting scalable component systems or refining user interfaces.  
+  My go-to stack includes React, Next.js, TypeScript, and Tailwind CSS, and I’m constantly building, experimenting, and staying ahead in a fast-paced tech landscape.
+
+  Outside of code, I'm into strength training and follow UFC, unwind with a good chess match or story-rich open-world game, and stay plugged into science and wildlife.  
+  I’ve always had a soft spot for dinosaurs — some interests never really leave.
+</p>
+
         <p>
           I&apos;m open to Job opportunities where I can contribute, learn and
           grow. If you have a good opportunity that matches my skills and

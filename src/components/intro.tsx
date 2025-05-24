@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -16,36 +17,45 @@ export const Intro = () => {
       id="home"
       className="my-10 flex scroll-mt-96 flex-col items-center gap-5 text-center sm:mt-28"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          type: 'tween',
-          duration: 0.2,
-        }}
-      >
-        <Link
-          href="#contact"
-          className="flex items-center gap-3 rounded border px-3 py-1"
-        >
-          <span className="relative flex size-2">
-            <span className="absolute flex size-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative flex size-2 rounded-full bg-green-400"></span>
-          </span>
-          <span className="font-mono text-sm">Available for work!</span>
-        </Link>
-      </motion.div>
-      <motion.h1
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="font-heading max-w-3xl text-4xl font-extrabold md:text-5xl"
-      >
-        Hi I&#39;m a{' '}
-        <span className="bg-gradient-to-r from-rose-700 to-pink-600 bg-clip-text text-transparent">
-          Frontend
-        </span>{' '}
-        developer creating modern web apps.
-      </motion.h1>
+<motion.div
+  initial={{ opacity: 0, scale: 0 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{
+    type: 'tween',
+    duration: 0.3,
+  }}
+>
+<div className="relative h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 rounded-full overflow-hidden border-2 border-border shadow-lg">
+  <Image
+    src="/images/me.jpg"
+    alt="Adhvait Jadav"
+    fill
+    className="object-cover object-[30%_-35%] scale-110 md:scale-125 transition-transform"
+    priority
+  />
+</div>
+</motion.div>
+
+<motion.h1
+  initial={{ opacity: 0, y: 100 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="font-heading max-w-3xl text-4xl font-extrabold md:text-5xl leading-tight"
+>
+  Hi, I’m{' '}
+  <span className="relative inline-block">
+    {/* Light Mode — match “Get in touch” green (primary color) */}
+    <span className="dark:hidden text-primary font-extrabold">
+      Adhvait Jadav
+    </span>
+    {/* Dark Mode — neon green */}
+    <span className="hidden dark:inline text-[#39ff14] font-extrabold">
+      Adhvait Jadav
+    </span>
+  </span>
+  , a full-stack developer building modern web apps.
+</motion.h1>
+
+
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,8 +64,7 @@ export const Intro = () => {
         }}
         className="text-muted-foreground max-w-xl"
       >
-        A frontend developer based in the Poland. I&#39;m passionate about
-        building modern web applications using Next.js, React, and Tailwind CSS.
+       Full-stack developer based in Canada with experience across modern stacks — from React/Next.js to Node, Medusa, Strapi, SQL/noSQL, and cloud deployment on AWS & Vercel.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -71,13 +80,13 @@ export const Intro = () => {
           </Link>
         </Button>
         <Button variant="outline" size="lg" className="hidden sm:flex" asChild>
-          <a href="/michalskolak.pdf" download>
+          <a href="/resume_AJ.pdf" download>
             Download CV <Icons.download className="ml-2 size-4" />
           </a>
         </Button>
         <Button variant="outline" size="icon" asChild>
           <Link
-            href="https://www.linkedin.com/in/micha%C5%82-skolak-06905524b"
+            href="https://www.linkedin.com/in/adhvaitjadav"
             aria-label="Linkedin"
             target="_blank"
           >
@@ -86,7 +95,7 @@ export const Intro = () => {
         </Button>
         <Button variant="outline" size="icon" asChild>
           <Link
-            href="https://github.com/Skolaczk"
+            href="https://github.com/Tweakforme"
             aria-label="Github"
             target="_blank"
           >

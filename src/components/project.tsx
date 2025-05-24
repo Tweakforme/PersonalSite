@@ -1,69 +1,104 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { createPortal } from 'react-dom';
+import { useTheme } from 'next-themes';
 
-import { projectsData } from '@/lib/data';
-
-type TProject = (typeof projectsData)[number];
+type TProject = {
+  title: string;
+  cover: string;
+  screenshots: string[];
+  description: string;
+  technologies: string[];
+};
 
 type TProps = {
   project: TProject;
   index: number;
 };
 
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
+const fadeInVariants = {
+  initial: { opacity: 0, y: 100 },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: 0.1 * index,
-    },
+    transition: { delay: 0.1 * index },
   }),
 };
 
 export const Project = ({ project, index }: TProps) => {
-  const { image, title, description, technologies, links } = project;
+  const [showModal, setShowModal] = useState(false);
+  const { theme } = useTheme();
 
   return (
-    <motion.div
-      variants={fadeInAnimationVariants}
-      initial="initial"
-      whileInView="animate"
-      viewport={{
-        once: true,
-      }}
-      custom={index}
-      className="flex flex-col rounded border p-5 md:w-1/2"
-    >
-      <Link
-        href={links.github}
-        aria-label={title}
-        target="_blank"
-        className="overflow-hidden rounded"
+    <>
+      <motion.div
+        variants={fadeInVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        custom={index}
+        className="flex flex-col rounded border p-4 shadow transition hover:shadow-xl"
       >
-        <Image
-          src={image}
-          alt={title}
-          height={390}
-          width={600}
-          className="rounded transition-transform hover:scale-105"
-        />
-      </Link>
-      <h3 className="mt-3 text-xl font-medium">{title}</h3>
-      <p className="text-muted-foreground mb-2 mt-1">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {technologies.map((tech) => (
-          <span className="rounded-full border px-3 py-1 text-sm" key={tech}>
-            {tech}
-          </span>
-        ))}
-      </div>
-    </motion.div>
+        <div
+          className="cursor-pointer overflow-hidden rounded"
+          onClick={() => setShowModal(true)}
+        >
+          <Image
+            src={project.cover}
+            alt={project.title}
+            width={800}
+            height={450}
+            className="rounded transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+        <h3 className="mt-4 text-xl font-semibold">{project.title}</h3>
+        <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border px-3 py-1 text-sm text-muted-foreground"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+      {showModal &&
+        createPortal(
+          <div
+            className={`${theme} fixed inset-0 z-50 flex flex-col items-center justify-start overflow-y-auto bg-background text-foreground px-4 py-8`}
+          >
+          <button
+  onClick={() => setShowModal(false)}
+  className={`mb-6 self-start rounded border px-4 py-2 text-sm font-medium transition ${
+    theme === 'light'
+      ? 'border-gray-300 bg-white text-black hover:bg-gray-100'
+      : 'border-white/30 bg-white/10 text-white hover:bg-white/20'
+  }`}
+>
+  ⬅ Back
+</button>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.screenshots.map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`${project.title} screenshot ${i + 1}`}
+                  width={800}
+                  height={450}
+                  className="rounded shadow-lg"
+                />
+              ))}
+            </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 };

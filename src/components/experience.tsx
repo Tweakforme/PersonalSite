@@ -20,11 +20,11 @@ export const Experience = () => {
     >
       <SectionHeading
         heading="My Experience"
-        content="Professional experience that I have accumulated over several years."
+        content="Professional experience that I have gained over the years."
       />
       <div className="relative max-w-screen-md">
         {experiencesData.map(
-          ({ title, description, company, period, technologies }) => (
+          ({ title, description, company, period, technologies, projects }) => (
             <div
               key={company}
               className="not-last:pb-12 relative pl-8 [&:not(:last-child)]:pb-10"
@@ -34,16 +34,9 @@ export const Experience = () => {
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.175,
-                }}
-                viewport={{
-                  once: true,
-                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.175 }}
+                viewport={{ once: true }}
                 className={cn('space-y-3 opacity-0')}
               >
                 <div className="flex items-center gap-3">
@@ -59,7 +52,23 @@ export const Experience = () => {
                     <span>{period}</span>
                   </div>
                 </div>
-                <p className="text-muted-foreground">{description}</p>
+                {typeof description === 'string' ? (
+                  <div className="text-muted-foreground space-y-2">
+                    <p>{description}</p>
+                    {projects && (
+                      <ul className="mt-2 list-disc pl-6 space-y-1 text-sm">
+                        {projects.map((proj) => (
+                          <li key={proj.name}>
+                            <strong>{proj.name}</strong>: {proj.summary}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground">{description}</p>
+                )}
+
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech) => (
                     <div
