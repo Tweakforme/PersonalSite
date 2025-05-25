@@ -13,26 +13,11 @@ type Experience = {
 };
 
 export const links = [
-  {
-    name: 'Home',
-    hash: '#home',
-  },
-  {
-    name: 'About',
-    hash: '#about',
-  },
-  {
-    name: 'Experience',
-    hash: '#experience',
-  },
-  {
-    name: 'Projects',
-    hash: '#projects',
-  },
-  {
-    name: 'Contact',
-    hash: '#contact',
-  },
+  { name: 'Home', hash: '#home' },
+  { name: 'About', hash: '#about' },
+  { name: 'Experience', hash: '#experience' },
+  { name: 'Projects', hash: '#projects' },
+  { name: 'Contact', hash: '#contact' },
 ] as const;
 
 export const projectsData = [
@@ -48,7 +33,6 @@ export const projectsData = [
       '/images/rentals/4.webp',
     ],
     technologies: ['WordPress', 'PHP', 'Estatik', 'Tailwind'],
-    projects: [],
   },
   {
     title: 'Advanced Plumbing Kamloops',
@@ -62,7 +46,6 @@ export const projectsData = [
       '/images/plumbing/4.webp',
     ],
     technologies: ['HTML', 'CSS', 'JavaScript', 'PHP'],
-    projects: [],
   },
   {
     title: 'Hodder Construction',
@@ -71,7 +54,6 @@ export const projectsData = [
     cover: '/images/hodder/1.webp',
     screenshots: ['/images/hodder/1.webp'],
     technologies: ['Tailwind CSS', 'PHP', 'DigitalOcean'],
-    projects: [],
   },
   {
     title: 'Employee Timesheet App',
@@ -80,7 +62,6 @@ export const projectsData = [
     cover: '/images/employee/1.webp',
     screenshots: ['/images/employee/1.webp', '/images/employee/2.webp'],
     technologies: ['React', 'Node.js', 'MySQL', 'Tailwind CSS'],
-    projects: [],
   },
   {
     title: 'Raven Reads Books',
@@ -89,7 +70,6 @@ export const projectsData = [
     cover: '/images/raven/1.webp',
     screenshots: ['/images/raven/1.webp'],
     technologies: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
-    projects: [],
   },
 ] as const;
 
