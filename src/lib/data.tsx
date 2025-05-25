@@ -36,6 +36,7 @@ export const projectsData = [
       '/images/rentals/4.webp',
     ],
     technologies: ['WordPress', 'PHP', 'Estatik', 'Tailwind'],
+    projects: [],
   },
   {
     title: 'Advanced Plumbing Kamloops',
@@ -49,6 +50,7 @@ export const projectsData = [
       '/images/plumbing/4.webp',
     ],
     technologies: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    projects: [],
   },
   {
     title: 'Hodder Construction',
@@ -57,6 +59,7 @@ export const projectsData = [
     cover: '/images/hodder/1.webp',
     screenshots: ['/images/hodder/1.webp'],
     technologies: ['Tailwind CSS', 'PHP', 'DigitalOcean'],
+    projects: [],
   },
   {
     title: 'Employee Timesheet App',
@@ -65,6 +68,7 @@ export const projectsData = [
     cover: '/images/employee/1.webp',
     screenshots: ['/images/employee/1.webp', '/images/employee/2.webp'],
     technologies: ['React', 'Node.js', 'MySQL', 'Tailwind CSS'],
+    projects: [],
   },
   {
     title: 'Raven Reads Books',
@@ -73,6 +77,7 @@ export const projectsData = [
     cover: '/images/raven/1.webp',
     screenshots: ['/images/raven/1.webp'],
     technologies: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
+    projects: [],
   },
 ] as const;
 
@@ -130,6 +135,7 @@ export const experiencesData = [
       'Supported Apple customers via Safeview and CRM systems. Resolved hardware/software issues across iPhones, iPads, and Macs. Promoted to Mac Specialist.',
     period: 'Oct 2023 – Aug 2024',
     technologies: ['Apple Ecosystem', 'Customer Support', 'Safeview', 'CRM'],
+    projects: [],
   },
   {
     title: 'Intern Web Developer',
@@ -138,6 +144,7 @@ export const experiencesData = [
       'Built responsive UIs, customized Shopify themes, added 100+ products, and launched marketing pages. Contributed to QA testing and live support.',
     period: 'Feb 2023 – Sep 2023',
     technologies: ['Shopify', 'HTML5', 'CSS3', 'JavaScript', 'QA', 'Agile'],
+    projects: [],
   },
   {
     title: 'Freelance Developer',
@@ -146,6 +153,7 @@ export const experiencesData = [
       'Created scalable web applications and e-commerce platforms for clients with full ownership of design, frontend, backend, and deployment.',
     period: '2022 – Present',
     technologies: ['Next.js', 'MongoDB', 'Stripe', 'TypeScript', 'Tailwind'],
+    projects: [],
   },
 ] as const;
 
