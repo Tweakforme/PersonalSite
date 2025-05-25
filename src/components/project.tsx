@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { createPortal } from 'react-dom';
 import { useTheme } from 'next-themes';
 
 type TProject = {
@@ -55,12 +55,14 @@ export const Project = ({ project, index }: TProps) => {
           />
         </div>
         <h3 className="mt-4 text-xl font-semibold">{project.title}</h3>
-        <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>
+        <p className="text-muted-foreground mt-2 text-sm">
+          {project.description}
+        </p>
         <div className="mt-2 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border px-3 py-1 text-sm text-muted-foreground"
+              className="text-muted-foreground rounded-full border px-3 py-1 text-sm"
             >
               {tech}
             </span>
@@ -71,20 +73,20 @@ export const Project = ({ project, index }: TProps) => {
       {showModal &&
         createPortal(
           <div
-            className={`${theme} fixed inset-0 z-50 flex flex-col items-center justify-start overflow-y-auto bg-background text-foreground px-4 py-8`}
+            className={`${theme} bg-background text-foreground fixed inset-0 z-50 flex flex-col items-center justify-start overflow-y-auto px-4 py-8`}
           >
-          <button
-  onClick={() => setShowModal(false)}
-  className={`mb-6 self-start rounded border px-4 py-2 text-sm font-medium transition ${
-    theme === 'light'
-      ? 'border-gray-300 bg-white text-black hover:bg-gray-100'
-      : 'border-white/30 bg-white/10 text-white hover:bg-white/20'
-  }`}
->
-  ⬅ Back
-</button>
+            <button
+              onClick={() => setShowModal(false)}
+              className={`mb-6 self-start rounded border px-4 py-2 text-sm font-medium transition ${
+                theme === 'light'
+                  ? 'border-gray-300 bg-white text-black hover:bg-gray-100'
+                  : 'border-white/30 bg-white/10 text-white hover:bg-white/20'
+              }`}
+            >
+              ⬅ Back
+            </button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {project.screenshots.map((src, i) => (
                 <Image
                   key={i}

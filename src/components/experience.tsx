@@ -56,7 +56,7 @@ export const Experience = () => {
                   <div className="text-muted-foreground space-y-2">
                     <p>{description}</p>
                     {projects && (
-                      <ul className="mt-2 list-disc pl-6 space-y-1 text-sm">
+                      <ul className="mt-2 list-disc space-y-1 pl-6 text-sm">
                         {projects.map((proj) => (
                           <li key={proj.name}>
                             <strong>{proj.name}</strong>: {proj.summary}

@@ -3,68 +3,65 @@
 @tailwind utilities;
 
 @layer base {
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222 47% 11%;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-  --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-  --primary: 152 60% 35%; /* emerald */
-  --primary-foreground: 144 70% 96%;
+    --primary: 152 60% 35%; /* emerald */
+    --primary-foreground: 144 70% 96%;
 
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 222 47% 11%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-  --muted: 220 14% 95%;
-  --muted-foreground: 222 10% 40%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 222 10% 40%;
 
-  --accent: 152 28% 85%;
-  --accent-foreground: 222 47% 11%;
+    --accent: 152 28% 85%;
+    --accent-foreground: 222 47% 11%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 152 60% 35%;
-}
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 152 60% 35%;
+  }
 
+  .dark {
+    --background: 0 0% 0%; /* pure black */
+    --foreground: 120 100% 90%; /* soft neon green text */
 
-.dark {
-  --background: 0 0% 0%; /* pure black */
-  --foreground: 120 100% 90%; /* soft neon green text */
+    --card: 0 0% 4%;
+    --card-foreground: 120 100% 90%;
 
-  --card: 0 0% 4%;
-  --card-foreground: 120 100% 90%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 120 100% 90%;
 
-  --popover: 0 0% 6%;
-  --popover-foreground: 120 100% 90%;
+    --primary: 120 100% 45%; /* neon green */
+    --primary-foreground: 0 0% 0%; /* black text on green btns */
 
-  --primary: 120 100% 45%; /* neon green */
-  --primary-foreground: 0 0% 0%; /* black text on green btns */
+    --secondary: 0 0% 15%; /* dark grey */
+    --secondary-foreground: 120 100% 90%;
 
-  --secondary: 0 0% 15%; /* dark grey */
-  --secondary-foreground: 120 100% 90%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 120 15% 65%;
 
-  --muted: 0 0% 20%;
-  --muted-foreground: 120 15% 65%;
+    --accent: 120 40% 40%;
+    --accent-foreground: 120 100% 90%;
 
-  --accent: 120 40% 40%;
-  --accent-foreground: 120 100% 90%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
-  --ring: 120 100% 45%;
-}
-
-
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 120 100% 45%;
+  }
 }
 
 @layer base {

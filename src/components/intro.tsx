@@ -1,7 +1,6 @@
 'use client';
-import Image from 'next/image';
-
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/components/button';
@@ -17,44 +16,43 @@ export const Intro = () => {
       id="home"
       className="my-10 flex scroll-mt-96 flex-col items-center gap-5 text-center sm:mt-28"
     >
-<motion.div
-  initial={{ opacity: 0, scale: 0 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{
-    type: 'tween',
-    duration: 0.3,
-  }}
->
-<div className="relative h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 rounded-full overflow-hidden border-2 border-border shadow-lg">
-  <Image
-    src="/images/me.jpg"
-    alt="Adhvait Jadav"
-    fill
-    className="object-cover object-[30%_-35%] scale-110 md:scale-125 transition-transform"
-    priority
-  />
-</div>
-</motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: 'tween',
+          duration: 0.3,
+        }}
+      >
+        <div className="border-border relative size-28 overflow-hidden rounded-full border-2 shadow-lg sm:size-32 md:size-36">
+          <Image
+            src="/images/me.jpg"
+            alt="Adhvait Jadav"
+            fill
+            className="scale-110 object-cover object-[30%_-35%] transition-transform md:scale-125"
+            priority
+          />
+        </div>
+      </motion.div>
 
-<motion.h1
-  initial={{ opacity: 0, y: 100 }}
-  animate={{ opacity: 1, y: 0 }}
-  className="font-heading max-w-3xl text-4xl font-extrabold md:text-5xl leading-tight"
->
-  Hi, I’m{' '}
-  <span className="relative inline-block">
-    {/* Light Mode — match “Get in touch” green (primary color) */}
-    <span className="dark:hidden text-primary font-extrabold">
-      Adhvait Jadav
-    </span>
-    {/* Dark Mode — neon green */}
-    <span className="hidden dark:inline text-[#39ff14] font-extrabold">
-      Adhvait Jadav
-    </span>
-  </span>
-  , a full-stack developer building modern web apps.
-</motion.h1>
-
+      <motion.h1
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="font-heading max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl"
+      >
+        Hi, I’m{' '}
+        <span className="relative inline-block">
+          {/* Light Mode — match “Get in touch” green (primary color) */}
+          <span className="text-primary font-extrabold dark:hidden">
+            Adhvait Jadav
+          </span>
+          {/* Dark Mode — neon green */}
+          <span className="hidden font-extrabold text-[#39ff14] dark:inline">
+            Adhvait Jadav
+          </span>
+        </span>
+        , a full-stack developer building modern web apps.
+      </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 100 }}
@@ -64,7 +62,9 @@ export const Intro = () => {
         }}
         className="text-muted-foreground max-w-xl"
       >
-       Full-stack developer based in Canada with experience across modern stacks — from React/Next.js to Node, Medusa, Strapi, SQL/noSQL, and cloud deployment on AWS & Vercel.
+        Full-stack developer based in Canada with experience across modern
+        stacks — from React/Next.js to Node, Medusa, Strapi, SQL/noSQL, and
+        cloud deployment on AWS & Vercel.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 100 }}

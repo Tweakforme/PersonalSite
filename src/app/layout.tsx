@@ -43,7 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en" suppressHydrationWarning>
