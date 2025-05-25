@@ -48,7 +48,7 @@ export const Intro = () => {
           </span>
           {/* Dark Mode — neon green */}
           <span className="hidden font-extrabold text-[#39ff14] dark:inline">
-            Adhvait Jadav
+            AJ
           </span>
         </span>
         , a full-stack developer building modern web apps.
