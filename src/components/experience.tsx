@@ -24,7 +24,14 @@ export const Experience = () => {
       />
       <div className="relative max-w-screen-md">
         {experiencesData.map(
-          ({ title, description, company, period, technologies, projects }) => (
+          ({
+            title,
+            description,
+            company,
+            period,
+            technologies,
+            projects = [],
+          }) => (
             <div
               key={company}
               className="not-last:pb-12 relative pl-8 [&:not(:last-child)]:pb-10"
@@ -57,11 +64,13 @@ export const Experience = () => {
                     <p>{description}</p>
                     {projects && (
                       <ul className="mt-2 list-disc space-y-1 pl-6 text-sm">
-                        {projects.map((proj) => (
-                          <li key={proj.name}>
-                            <strong>{proj.name}</strong>: {proj.summary}
-                          </li>
-                        ))}
+                        {projects.map(
+                          (proj: { name: string; summary: string }) => (
+                            <li key={proj.name}>
+                              <strong>{proj.name}</strong>: {proj.summary}
+                            </li>
+                          )
+                        )}
                       </ul>
                     )}
                   </div>
