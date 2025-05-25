@@ -80,7 +80,7 @@ export const Intro = () => {
           </Link>
         </Button>
         <Button variant="outline" size="lg" className="hidden sm:flex" asChild>
-          <a href="/resume_AJ.pdf" download>
+          <a href="/Resume_AJ.pdf" download>
             Download CV <Icons.download className="ml-2 size-4" />
           </a>
         </Button>
