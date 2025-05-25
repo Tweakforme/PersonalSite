@@ -1,5 +1,17 @@
 import { Icons } from '@/components/icons';
 
+type Experience = {
+  title: string;
+  company: string;
+  description: string;
+  period: string;
+  technologies: string[];
+  projects: {
+    name: string;
+    summary: string;
+  }[];
+};
+
 export const links = [
   {
     name: 'Home',
@@ -81,7 +93,7 @@ export const projectsData = [
   },
 ] as const;
 
-export const experiencesData = [
+export const experiencesData: Experience[] = [
   {
     title: 'Full Stack Web Developer',
     company: 'Hodder Construction, Kamloops BC',
