@@ -1,8 +1,4 @@
-import Link from 'next/link';
-
-import { buttonVariants } from '@/components/button';
 import { Icons } from '@/components/icons';
-import { cn } from '@/lib/utils';
 
 export const links = [
   {
@@ -30,7 +26,8 @@ export const links = [
 export const projectsData = [
   {
     title: 'Rentals Kamloops',
-    description: 'Property listing site with PDF generation built on WordPress using the Estatik plugin.',
+    description:
+      'Property listing site with PDF generation built on WordPress using the Estatik plugin.',
     cover: '/images/rentals/1.webp',
     screenshots: [
       '/images/rentals/1.webp',
@@ -42,7 +39,8 @@ export const projectsData = [
   },
   {
     title: 'Advanced Plumbing Kamloops',
-    description: 'Static website hosted on DigitalOcean with a secure contact form and PDF form submission.',
+    description:
+      'Static website hosted on DigitalOcean with a secure contact form and PDF form submission.',
     cover: '/images/plumbing/1.webp',
     screenshots: [
       '/images/plumbing/1.webp',
@@ -54,37 +52,36 @@ export const projectsData = [
   },
   {
     title: 'Hodder Construction',
-    description: 'Company landing page built with Tailwind CSS and PHP, deployed on DigitalOcean.',
+    description:
+      'Company landing page built with Tailwind CSS and PHP, deployed on DigitalOcean.',
     cover: '/images/hodder/1.webp',
     screenshots: ['/images/hodder/1.webp'],
     technologies: ['Tailwind CSS', 'PHP', 'DigitalOcean'],
   },
   {
     title: 'Employee Timesheet App',
-    description: 'Internal React + Node.js dashboard for job tracking, export to PDF, and database backup.',
+    description:
+      'Internal React + Node.js dashboard for job tracking, export to PDF, and database backup.',
     cover: '/images/employee/1.webp',
-    screenshots: [
-      '/images/employee/1.webp',
-      '/images/employee/2.webp',
-    ],
+    screenshots: ['/images/employee/1.webp', '/images/employee/2.webp'],
     technologies: ['React', 'Node.js', 'MySQL', 'Tailwind CSS'],
   },
   {
     title: 'Raven Reads Books',
-    description: 'Shopify theme customization, marketing pages, and QA testing for Canadian Indigenous book club.',
+    description:
+      'Shopify theme customization, marketing pages, and QA testing for Canadian Indigenous book club.',
     cover: '/images/raven/1.webp',
     screenshots: ['/images/raven/1.webp'],
     technologies: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
   },
 ] as const;
 
-
-
 export const experiencesData = [
   {
     title: 'Full Stack Web Developer',
     company: 'Hodder Construction, Kamloops BC',
-    description: 'Led full-stack development for multiple production-grade web projects.',
+    description:
+      'Led full-stack development for multiple production-grade web projects.',
     period: 'Aug 2024 – May 2025',
     technologies: [
       'React',
@@ -151,7 +148,6 @@ export const experiencesData = [
     technologies: ['Next.js', 'MongoDB', 'Stripe', 'TypeScript', 'Tailwind'],
   },
 ] as const;
-
 
 export const skillsData = [
   { icon: <Icons.html className="size-12" /> },
