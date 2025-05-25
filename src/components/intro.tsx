@@ -44,7 +44,7 @@ export const Intro = () => {
         <span className="relative inline-block">
           {/* Light Mode — match “Get in touch” green (primary color) */}
           <span className="text-primary font-extrabold dark:hidden">
-            Adhvait Jadav
+            Adhvait
           </span>
           {/* Dark Mode — neon green */}
           <span className="hidden font-extrabold text-[#39ff14] dark:inline">
