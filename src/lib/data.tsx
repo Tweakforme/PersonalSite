@@ -167,7 +167,7 @@ export const experiencesData: Experience[] = [
     technologies: ['Next.js', 'MongoDB', 'Stripe', 'TypeScript', 'Tailwind'],
     projects: [],
   },
-] as const;
+];
 
 export const skillsData = [
   { icon: <Icons.html className="size-12" /> },
