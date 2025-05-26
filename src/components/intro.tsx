@@ -29,7 +29,7 @@ export const Intro = () => {
             src="/images/me.jpg"
             alt="Adhvait Jadav"
             fill
-            className="scale-110 object-cover object-[35%_30%] sm:object-[30%_35%] md:scale-125"
+            className="-translate-x-[2.5%] scale-110 object-cover object-[25%_-10%] sm:object-[30%_-15%] md:scale-125"
             priority
           />
         </div>
