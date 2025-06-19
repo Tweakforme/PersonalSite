@@ -224,8 +224,8 @@ export const projectsData = [
       'Full-scale MERN stack e-commerce platform for Tesla parts with advanced inventory management.',
     shortDescription:
       'Full e-commerce store selling Tesla parts with 500+ products and integrated payment processing.',
-    cover: '/images/evstore/1.webp', // Updated path for EV store images
-    screenshots: ['/images/evstore/1.webp', '/images/evstore/2.webp'],
+    cover: '/images/evstore/1.png', // Updated path for EV store images
+    screenshots: ['/images/evstore/1.png', '/images/evstore/2.png'],
     technologies: [
       'MongoDB',
       'Express.js',
