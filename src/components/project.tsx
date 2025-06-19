@@ -99,7 +99,7 @@ export const Project = ({ project, index }: TProps) => {
         whileInView="animate"
         viewport={{ once: true }}
         custom={index}
-        className="group relative flex cursor-pointer flex-col rounded-xl border border-white/20 bg-white/10 p-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-white/20 hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:hover:border-transparent dark:hover:bg-white/10"
+        className="group relative flex cursor-pointer flex-col rounded-xl border border-white/20 bg-white/10 p-3 shadow-lg backdrop-blur-sm transition-all duration-200 will-change-transform hover:-translate-y-1 hover:border-transparent hover:bg-white/20 hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:hover:border-transparent dark:hover:bg-white/10"
         onClick={() => setShowModal(true)}
       >
         {/* Project Image */}
@@ -122,7 +122,7 @@ export const Project = ({ project, index }: TProps) => {
         </div>
 
         {/* Project Header */}
-        <div className="mb-2 flex items-start justify-between transition-all duration-300 group-hover:blur-sm">
+        <div className="mb-2 flex items-start justify-between transition-all duration-200 group-hover:blur-[2px]">
           <h3 className="group-hover:text-primary text-lg font-bold transition-colors">
             {project.title}
           </h3>
@@ -133,35 +133,35 @@ export const Project = ({ project, index }: TProps) => {
         </div>
 
         {/* Description */}
-        <p className="text-muted-foreground mb-3 line-clamp-2 text-sm transition-all duration-300 group-hover:blur-sm">
+        <p className="text-muted-foreground mb-3 line-clamp-2 text-sm transition-all duration-200 group-hover:blur-[2px]">
           {project.shortDescription}
         </p>
 
         {/* Technologies */}
-        <div className="mb-3 flex flex-wrap gap-1 transition-all duration-300 group-hover:blur-sm">
+        <div className="mb-3 flex flex-wrap gap-1 transition-all duration-200 group-hover:blur-[2px]">
           {project.technologies.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="text-foreground/80 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs font-medium backdrop-blur-sm"
+              className="text-foreground/80 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs font-medium"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="text-foreground/60 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs backdrop-blur-sm">
+            <span className="text-foreground/60 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs">
               +{project.technologies.length - 3} more
             </span>
           )}
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-auto flex gap-1 transition-all duration-300 group-hover:blur-sm">
+        <div className="mt-auto flex gap-1 transition-all duration-200 group-hover:blur-[2px]">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary/90 hover:bg-primary text-primary-foreground border-primary/20 inline-flex flex-1 items-center justify-center gap-1 rounded-lg border px-2 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-300"
+              className="bg-primary/90 hover:bg-primary text-primary-foreground border-primary/20 inline-flex flex-1 items-center justify-center gap-1 rounded-lg border px-2 py-1.5 text-xs font-medium transition-all duration-200"
               onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="size-3" />
@@ -173,7 +173,7 @@ export const Project = ({ project, index }: TProps) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+              className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium transition-all duration-200 hover:bg-white/20"
               onClick={(e) => e.stopPropagation()}
             >
               <Github className="size-3" />
@@ -182,7 +182,7 @@ export const Project = ({ project, index }: TProps) => {
           )}
           <button
             onClick={() => setShowModal(true)}
-            className="rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+            className="rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium transition-all duration-200 hover:bg-white/20"
           >
             <Code className="size-3" />
           </button>
