@@ -238,7 +238,7 @@ export const projectsData = [
     liveUrl: 'https://theevstore.ca',
     githubUrl: null, // Private/commercial
     status: 'in-development',
-    type: 'personal',
+    type: 'client',
     keyFeatures: [
       '500+ Tesla parts inventory',
       'Stripe payment integration',
