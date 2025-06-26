@@ -137,7 +137,7 @@ export const projectsData = [
     technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'PHP'],
     liveUrl: 'https://www.hodder.ca',
     githubUrl: null, // Still in development
-    status: 'in-development',
+    status: 'completed',
     type: 'client',
     keyFeatures: [
       'Multiple finished project showcases',
