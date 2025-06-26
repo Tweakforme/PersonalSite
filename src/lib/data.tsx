@@ -132,8 +132,8 @@ export const projectsData = [
       'Construction company website showcasing multiple completed projects with modern design.',
     shortDescription:
       'Company landing page built with Tailwind CSS and PHP, deployed on DigitalOcean.',
-    cover: '/images/hodder/1.webp',
-    screenshots: ['/images/hodder/1.webp'],
+    cover: '/images/hodder/1.png',
+    screenshots: ['/images/hodder/1.png'],
     technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'PHP'],
     liveUrl: 'https://www.hodder.ca',
     githubUrl: null, // Still in development
