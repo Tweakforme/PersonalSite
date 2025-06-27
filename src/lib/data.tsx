@@ -50,33 +50,6 @@ export const projectsData = [
       'Enhanced online presence for construction company with professional project showcases.',
   },
   {
-    title: 'Hodder Construction',
-    description:
-      'Construction company website showcasing multiple completed projects with modern design.',
-    shortDescription:
-      'Company landing page built with Tailwind CSS and PHP, deployed on DigitalOcean.',
-    cover: '/images/hodder/1.png',
-    screenshots: ['/images/hodder/1.png'],
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'PHP'],
-    liveUrl: 'https://www.hodder.ca',
-    githubUrl: null, // Still in development
-    status: 'completed',
-    type: 'client',
-    keyFeatures: [
-      'Multiple finished project showcases',
-      'Modern responsive design',
-      'Construction portfolio gallery',
-      'Contact and inquiry forms',
-      'Mobile-optimized interface',
-    ],
-    challenge:
-      'Showcasing construction projects effectively while maintaining professional appearance and fast loading.',
-    solution:
-      'Currently migrating from HTML/CSS to modern framework with optimized image galleries and improved UX.',
-    impact:
-      'Enhanced online presence for construction company with professional project showcases.',
-  },
-  {
     title: 'Rentals Kamloops',
     description:
       'Full-featured property listing platform with custom WordPress theme and advanced search functionality.',
