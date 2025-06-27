@@ -22,7 +22,7 @@ export const links = [
 
 // Enhanced project data structure with all your projects
 export const projectsData = [
- {
+  {
     title: 'Hodder Construction',
     description:
       'Construction company website showcasing multiple completed projects with modern design.',
