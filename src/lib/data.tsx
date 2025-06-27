@@ -49,7 +49,6 @@ export const projectsData = [
     impact:
       'Enhanced online presence for construction company with professional project showcases.',
   },
-  
   {
     title: 'Rentals Kamloops',
     description:
@@ -154,7 +153,6 @@ export const projectsData = [
     impact:
       'Provided streamlined Tesla shopping experience with detailed vehicle information and mobile-optimized interface.',
   },
- 
   {
     title: 'Raven Reads Books',
     description:
@@ -219,7 +217,6 @@ export const projectsData = [
     impact:
       'Streamlined employee time tracking and payroll processing with automated weekly reporting and reduced administrative overhead.',
   },
-
   {
     title: 'The EV Store',
     description:
