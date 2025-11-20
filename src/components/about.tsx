@@ -38,8 +38,8 @@ export const About = () => {
 
         <p className="mt-4 text-muted-foreground">
           I&apos;m open to job opportunities where I can contribute, learn, and
-          grow. If you have something that matches my skills, feel free to
-          reach out.
+          grow. If you have something that matches my skills, feel free to reach
+          out.
         </p>
       </div>
 
