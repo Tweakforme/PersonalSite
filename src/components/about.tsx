@@ -13,7 +13,7 @@ export const About = () => {
     <motion.section
       ref={ref}
       id="about"
-      className="my-10 flex w-full scroll-mt-28 flex-col items-center md:mb-20"
+      className="my-10 flex w-full flex-col items-center scroll-mt-28 md:mb-20"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
@@ -21,18 +21,18 @@ export const About = () => {
       <SectionHeading heading="About Me" />
 
       <p className="leading-relaxed text-muted-foreground">
-        I’m AJ! A full-stack developer based in Calgary, Alberta. I lived in BC
-        for about eight years between Kamloops and Vancouver, and I naturalized
-        as a Canadian citizen in 2024. I believe in getting things done the
-        right way. I build clean, fast web experiences and I use AI heavily in
-        my workflow to move faster and create sharper solutions. I like taking
-        ideas and turning them into something real — whether it's a full
-        product, a tool, or a custom site.
+        I&apos;m AJ! A full-stack developer based in Calgary, Alberta. I lived in
+        BC for about eight years between Kamloops and Vancouver, and I
+        naturalized as a Canadian citizen in 2024. I believe in getting things
+        done the right way. I build clean, fast web experiences and I use AI
+        heavily in my workflow to move faster and create sharper solutions. I
+        like taking ideas and turning them into something real — whether it&apos;s
+        a full product, a tool, or a custom site.
         <br />
         <br />
-        Outside tech, I’m pretty active. I train BJJ when I can, lift
-        regularly, snowboard in the winter, listen to music, and follow UFC.
-        I like keeping life simple — stay sharp, stay moving, keep improving.
+        Outside tech, I&apos;m pretty active. I train BJJ when I can, lift
+        regularly, snowboard in the winter, listen to music, and follow UFC. I
+        like keeping life simple — stay sharp, stay moving, keep improving.
       </p>
 
       <p className="mt-4 text-muted-foreground">
