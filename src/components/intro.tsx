@@ -26,12 +26,12 @@ export const Intro = () => {
           duration: 0.3,
         }}
       >
-      <div className="border-border relative size-28 overflow-hidden rounded-full border-2 shadow-lg sm:size-32 md:size-36">
+  <div className="border-border relative size-28 overflow-hidden rounded-full border-2 shadow-lg sm:size-32 md:size-36">
   <Image
     src="/images/me.jpg"
     alt="Adhvait Jadav"
     fill
-    className="object-cover"
+    className="object-cover object-[40%_45%] scale-125"
     priority
   />
 </div>
