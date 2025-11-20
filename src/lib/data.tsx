@@ -256,7 +256,6 @@ export const projectsData = [
   },
 ] as const;
 
-
 export const experiencesData: Experience[] = [
   {
     title: 'Shopify Merchant Support Advisor',
