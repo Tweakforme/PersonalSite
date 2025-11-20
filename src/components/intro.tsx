@@ -24,15 +24,16 @@ export const Intro = () => {
           duration: 0.3,
         }}
       >
-        <div className="border-border relative size-28 overflow-hidden rounded-full border-2 shadow-lg sm:size-32 md:size-36">
-          <Image
-            src="/images/me.jpg"
-            alt="Adhvait Jadav"
-            fill
-            className="-translate-x-[2.5%] scale-110 object-cover object-[25%_-10%] sm:object-[30%_-15%] md:scale-125"
-            priority
-          />
-        </div>
+      <div className="border-border relative size-28 overflow-hidden rounded-full border-2 shadow-lg sm:size-32 md:size-36">
+  <Image
+    src="/images/me.jpg"
+    alt="Adhvait Jadav"
+    fill
+    className="object-cover"
+    priority
+  />
+</div>
+
       </motion.div>
 
       <motion.h1
