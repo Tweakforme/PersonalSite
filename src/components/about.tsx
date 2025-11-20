@@ -22,9 +22,7 @@ export const About = () => {
       <div className="-mt-5 max-w-2xl text-center leading-7">
         <p className="mb-4">
         I&apos;m AJ! A full-stack developer based in Calgary, Alberta. I lived in BC for about eight years between Kamloops and Vancouver, and I ended up naturalizing as a Canadian citizen in 2024. I believe in the idea of getting shit done (the ethical way).
-
 I build clean, fast web experiences and I use and adapt to AI in my workflow. I like taking ideas and turning them into something real, whether it&apos;s a full product, a tool, or a custom site.
-
 Outside tech, I&apos;m pretty active, I train BJJ when I can, lift regularly, snowboard in the winter, listen to music, and follow UFC. I just like to simply stay sharp, stay moving, and keep leveling up.
         </p>
 
