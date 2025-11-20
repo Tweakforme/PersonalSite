@@ -258,7 +258,6 @@ export const projectsData = [
 
 
 export const experiencesData: Experience[] = [
-
   {
     title: 'Shopify Merchant Support Advisor',
     company: 'Shopify, Remote',
