@@ -264,7 +264,7 @@ export const experiencesData: Experience[] = [
     company: 'Shopify, Remote',
     description:
       'Supported Shopify merchants globally with storefront, checkout, theme, and payment issues while leveraging AI workflows for faster, more accurate resolutions.',
-    period: 'Jul 2024 – Present',
+    period: 'Jul 2025 – Present',
     technologies: [
       'Shopify',
       'Liquid',
@@ -276,7 +276,6 @@ export const experiencesData: Experience[] = [
     ],
     projects: [],
   },
-  
   {
     title: 'Full Stack Web Developer',
     company: 'Hodder Construction, Kamloops BC',
