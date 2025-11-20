@@ -19,18 +19,28 @@ export const About = () => {
       transition={{ delay: 0.175 }}
     >
       <SectionHeading heading="About Me" />
-      <div className="-mt-5 max-w-2xl text-center leading-7">
-        <p className="mb-4">{
-  "I'm AJ! A full-stack developer based in Calgary, Alberta. I lived in BC for about eight years between Kamloops and Vancouver, and I ended up naturalizing as a Canadian citizen in 2024. I believe in the idea of getting shit done (the ethical way). I build clean, fast web experiences and I use and adapt to AI in my workflow. I like taking ideas and turning them into something real, whether it's a full product, a tool, or a custom site. Outside tech, I'm pretty active — I train BJJ when I can, lift regularly, snowboard in the winter, listen to music, and follow UFC. I just like to stay sharp and always improving."
-}
-        </p>
 
-        <p>
-          I&apos;m open to Job opportunities where I can contribute, learn and
-          grow. If you have a good opportunity that matches my skills and
-          experience then don&apos;t hesitate to contact me.
-        </p>
-      </div>
+      <p className="leading-relaxed text-muted-foreground">
+        I’m AJ! A full-stack developer based in Calgary, Alberta. I lived in BC
+        for about eight years between Kamloops and Vancouver, and I naturalized
+        as a Canadian citizen in 2024. I believe in getting things done the
+        right way. I build clean, fast web experiences and I use AI heavily in
+        my workflow to move faster and create sharper solutions. I like taking
+        ideas and turning them into something real — whether it's a full
+        product, a tool, or a custom site.
+        <br />
+        <br />
+        Outside tech, I’m pretty active. I train BJJ when I can, lift
+        regularly, snowboard in the winter, listen to music, and follow UFC.
+        I like keeping life simple — stay sharp, stay moving, keep improving.
+      </p>
+
+      <p className="mt-4 text-muted-foreground">
+        I&apos;m open to job opportunities where I can contribute, learn, and
+        grow. If you have something that matches my skills, feel free to reach
+        out.
+      </p>
+
       <Skills />
     </motion.section>
   );
