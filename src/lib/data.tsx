@@ -256,9 +256,27 @@ export const projectsData = [
   },
 ] as const;
 
-// ADD THE MISSING EXPORTS BELOW:
 
 export const experiencesData: Experience[] = [
+
+  {
+    title: 'Shopify Merchant Support Advisor',
+    company: 'Shopify, Remote',
+    description:
+      'Supported Shopify merchants globally with storefront, checkout, theme, and payment issues while leveraging AI workflows for faster, more accurate resolutions.',
+    period: 'Jul 2024 – Present',
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'Shopify Apps',
+      'AI Tooling',
+      'ChatGPT',
+      'Claude',
+      'Hydrogen (exposure)',
+    ],
+    projects: [],
+  },
+  
   {
     title: 'Full Stack Web Developer',
     company: 'Hodder Construction, Kamloops BC',
