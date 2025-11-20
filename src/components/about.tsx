@@ -23,17 +23,17 @@ export const About = () => {
       <div className="mt-4 max-w-2xl text-center">
         <p className="leading-relaxed text-muted-foreground">
           I&apos;m AJ! A full-stack developer based in Calgary, Alberta. I lived
-          in BC for about eight years between Kamloops and Vancouver, and I
-          naturalized as a Canadian citizen in 2024. I believe in getting things
-          done the right way. I build clean, fast web experiences, and I use AI
-          heavily in my workflow to move faster and create sharper solutions. I
-          like taking ideas and turning them into something real — whether
+          in BC for about eight years between Kamloops and Vancouver, and
+          made the switch to Alberta recently. I believe in getting shit
+          done (the right way). I build clean, fast web experiences, and I use AI
+          in my workflow to move faster and create sharper solutions. I
+          like taking ideas and turning them into something real, whether
           it&apos;s a full product, a tool, or a custom site.
           <br />
           <br />
           Outside tech, I&apos;m pretty active. I train BJJ when I can, lift
-          regularly, snowboard in the winter, listen to music, and follow UFC. I
-          like keeping life simple — stay sharp, stay moving, keep improving.
+          regularly, like winter sports, listen to music, and follow UFC. I
+          like keeping life simple by staying sharp, and keeping on levelling up.
         </p>
 
         <p className="mt-4 text-muted-foreground">
