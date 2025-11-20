@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 'use client';
 
 import { motion } from 'framer-motion';
