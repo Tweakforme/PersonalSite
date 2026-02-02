@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ExternalLink, Github, X } from 'lucide-react';
+import Image from 'next/image';
 
 type TProject = {
   title: string;
@@ -89,10 +90,12 @@ export const Project = ({ project, index }: TProps) => {
         <div className="bg-card relative flex h-full flex-col overflow-hidden rounded-2xl">
           {/* Cover */}
           <div className="relative h-44 overflow-hidden sm:h-48">
-            <img
+            <Image
               src={project.cover}
               alt={project.title}
-              className="size-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 360px"
+              className="object-cover transition-all duration-700 ease-out group-hover:scale-110"
             />
             <div className="from-card via-card/40 absolute inset-0 bg-gradient-to-t to-transparent" />
 
@@ -204,10 +207,12 @@ export const Project = ({ project, index }: TProps) => {
               >
                 {/* Compact hero */}
                 <div className="relative h-32 overflow-hidden sm:h-40 md:h-48">
-                  <img
+                  <Image
                     src={project.cover}
                     alt={project.title}
-                    className="size-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 640px"
+                    className="object-cover"
                   />
                   <div className="from-card via-card/50 absolute inset-0 bg-gradient-to-t to-transparent" />
 
