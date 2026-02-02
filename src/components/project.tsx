@@ -1,18 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
-import {
-  AlertCircle,
-  Briefcase,
-  CheckCircle,
-  Clock,
-  Code,
-  ExternalLink,
-  Github,
-  User,
-} from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ExternalLink, Github, X } from 'lucide-react';
 
 type TProject = {
   title: string;
@@ -36,245 +27,272 @@ type TProps = {
   index: number;
 };
 
-const fadeInVariants = {
-  initial: { opacity: 0, y: 100 },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.1 * index },
-  }),
-};
-
-const StatusBadge = ({ status }: { status: TProject['status'] }) => {
-  const statusConfig = {
-    completed: {
-      icon: CheckCircle,
-      text: 'Completed',
-      color: 'text-green-500 border-green-500/30 bg-green-500/10',
-    },
-    'in-development': {
-      icon: Clock,
-      text: 'In Development',
-      color: 'text-blue-500 border-blue-500/30 bg-blue-500/10',
-    },
-    discontinued: {
-      icon: AlertCircle,
-      text: 'Discontinued',
-      color: 'text-orange-500 border-orange-500/30 bg-orange-500/10',
-    },
-  };
-
-  const config = statusConfig[status];
-  const Icon = config.icon;
-
-  return (
-    <span
-      className={`inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium ${config.color}`}
-    >
-      <Icon className="size-3" />
-      {config.text}
-    </span>
-  );
-};
-
-const TypeBadge = ({ type }: { type: TProject['type'] }) => {
-  const Icon = type === 'client' ? Briefcase : User;
-  return (
-    <span className="text-foreground/70 inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-xs font-medium backdrop-blur-sm">
-      <Icon className="size-3" />
-      {type === 'client' ? 'Client Project' : 'Personal Project'}
-    </span>
-  );
+const statusLabel: Record<TProject['status'], string> = {
+  completed: 'Shipped',
+  'in-development': 'Building',
+  discontinued: 'Archived',
 };
 
 export const Project = ({ project, index }: TProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [activeTab, setActiveTab] = useState('overview');
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showModal]);
+
+  const displayIndex = (index % 8) + 1;
 
   return (
     <>
-      <motion.div
-        variants={fadeInVariants}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        custom={index}
-        className="group relative flex cursor-pointer flex-col rounded-xl border border-white/20 bg-white/10 p-3 shadow-lg backdrop-blur-sm transition-all duration-200 will-change-transform hover:-translate-y-1 hover:border-transparent hover:bg-white/20 hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:hover:border-transparent dark:hover:bg-white/10"
+      {/* Card */}
+      <div
+        ref={cardRef}
+        className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl transition-all duration-500"
         onClick={() => setShowModal(true)}
+        onMouseMove={handleCardMouseMove}
+        onMouseEnter={() => setIsCardHovered(true)}
+        onMouseLeave={() => setIsCardHovered(false)}
       >
-        {/* Project Image */}
+        {/* Border glow */}
+        <div className="via-foreground/[0.08] group-hover:via-primary/20 absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent to-transparent opacity-100 transition-opacity duration-500" />
+
+        {/* Spotlight */}
         <div
-          className="mb-3 cursor-pointer overflow-hidden rounded-lg"
-          onClick={() => setShowModal(true)}
-        >
-          <img
-            src={project.cover}
-            alt={project.title}
-            className="h-32 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 rounded-lg bg-black/70 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3">
-              <span className="text-sm font-medium text-white">
-                View Details
+          className="pointer-events-none absolute -inset-px z-10 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background: isCardHovered
+              ? `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, hsl(var(--primary) / 0.06), transparent 60%)`
+              : 'none',
+          }}
+        />
+
+        {/* Inner */}
+        <div className="bg-card relative flex h-full flex-col overflow-hidden rounded-2xl">
+          {/* Cover */}
+          <div className="relative h-44 overflow-hidden sm:h-48">
+            <img
+              src={project.cover}
+              alt={project.title}
+              className="size-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
+            />
+            <div className="from-card via-card/40 absolute inset-0 bg-gradient-to-t to-transparent" />
+
+            {/* Number */}
+            <div className="text-foreground/[0.04] group-hover:text-foreground/[0.08] absolute right-3 top-3 font-mono text-[40px] font-black leading-none transition-all duration-500">
+              {String(displayIndex).padStart(2, '0')}
+            </div>
+
+            {/* Status pill */}
+            <div className="absolute bottom-3 left-3">
+              <span className="text-primary-foreground bg-primary/90 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+                {statusLabel[project.status]}
               </span>
             </div>
+
+            {/* Hover overlay */}
+            <div className="bg-foreground/40 dark:bg-background/40 absolute inset-0 flex items-center justify-center opacity-0 backdrop-blur-[2px] transition-all duration-500 group-hover:opacity-100">
+              <div className="border-foreground/20 bg-foreground/10 dark:border-border/60 dark:bg-background/60 rounded-full border px-5 py-2.5 shadow-2xl backdrop-blur-md transition-all duration-300 group-hover:scale-105">
+                <span className="text-background dark:text-foreground text-xs font-bold uppercase tracking-wider">
+                  Explore
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Project Header */}
-        <div className="mb-2 flex items-start justify-between transition-all duration-200 group-hover:blur-[2px]">
-          <h3 className="group-hover:text-primary text-lg font-bold transition-colors">
-            {project.title}
-          </h3>
-          <div className="flex flex-wrap gap-1">
-            <StatusBadge status={project.status} />
-            <TypeBadge type={project.type} />
+          {/* Content */}
+          <div className="flex flex-1 flex-col p-4 sm:p-5">
+            <div className="mb-2">
+              <h3 className="group-hover:text-primary text-sm font-extrabold tracking-tight transition-colors duration-300 sm:text-[15px]">
+                {project.title}
+              </h3>
+              <div className="from-primary/50 mt-1.5 h-px w-8 bg-gradient-to-r to-transparent transition-all duration-500 group-hover:w-16" />
+            </div>
+
+            <p className="text-muted-foreground mb-3 line-clamp-2 text-[11px] leading-relaxed sm:text-[12px]">
+              {project.shortDescription}
+            </p>
+
+            {/* Tech */}
+            <div className="mb-3 flex flex-wrap gap-1">
+              {project.technologies.slice(0, 3).map((tech) => (
+                <span
+                  key={tech}
+                  className="border-border group-hover:border-primary/10 bg-muted/30 text-muted-foreground group-hover:text-foreground/60 rounded-md border px-1.5 py-0.5 text-[9px] font-medium tracking-wide transition-all duration-300 sm:text-[10px]"
+                >
+                  {tech}
+                </span>
+              ))}
+              {project.technologies.length > 3 && (
+                <span className="border-border bg-muted/20 text-muted-foreground/50 rounded-md border px-1.5 py-0.5 text-[9px] sm:text-[10px]">
+                  +{project.technologies.length - 3}
+                </span>
+              )}
+            </div>
+
+            {/* Actions */}
+            <div className="mt-auto flex gap-2">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary ring-primary/20 hover:bg-primary/15 bg-primary/10 hover:ring-primary/40 inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-bold tracking-wide ring-1 transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <ExternalLink className="size-3" />
+                  Live
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-border text-muted-foreground hover:text-foreground bg-muted/30 hover:bg-muted/50 inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border px-3 py-1.5 text-[11px] font-bold tracking-wide transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Github className="size-3" />
+                  Source
+                </a>
+              )}
+            </div>
           </div>
+
+          {/* Bottom glow */}
+          <div className="via-primary/40 absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
+      </div>
 
-        {/* Description */}
-        <p className="text-muted-foreground mb-3 line-clamp-2 text-sm transition-all duration-200 group-hover:blur-[2px]">
-          {project.shortDescription}
-        </p>
-
-        {/* Technologies */}
-        <div className="mb-3 flex flex-wrap gap-1 transition-all duration-200 group-hover:blur-[2px]">
-          {project.technologies.slice(0, 3).map((tech) => (
-            <span
-              key={tech}
-              className="text-foreground/80 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs font-medium"
-            >
-              {tech}
-            </span>
-          ))}
-          {project.technologies.length > 3 && (
-            <span className="text-foreground/60 rounded-md border border-white/10 bg-white/20 px-2 py-1 text-xs">
-              +{project.technologies.length - 3} more
-            </span>
-          )}
-        </div>
-
-        {/* Action Buttons */}
-        <div className="mt-auto flex gap-1 transition-all duration-200 group-hover:blur-[2px]">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-primary/90 hover:bg-primary text-primary-foreground border-primary/20 inline-flex flex-1 items-center justify-center gap-1 rounded-lg border px-2 py-1.5 text-xs font-medium transition-all duration-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ExternalLink className="size-3" />
-              Live Site
-            </a>
-          )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium transition-all duration-200 hover:bg-white/20"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Github className="size-3" />
-              Code
-            </a>
-          )}
-          <button
-            onClick={() => setShowModal(true)}
-            className="rounded-lg border border-white/20 bg-white/10 px-2 py-1.5 text-xs font-medium transition-all duration-200 hover:bg-white/20"
-          >
-            <Code className="size-3" />
-          </button>
-        </div>
-      </motion.div>
-
-      {/* Enhanced Modal */}
+      {/* Modal */}
       {showModal &&
         createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
-            <div className="bg-background/95 max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-xl border border-white/20 shadow-2xl backdrop-blur-md">
-              {/* Modal Header */}
-              <div className="flex items-center justify-between border-b border-white/20 bg-white/5 p-6 backdrop-blur-sm">
-                <div>
-                  <h2 className="text-2xl font-bold">{project.title}</h2>
-                  <div className="mt-2 flex gap-2">
-                    <StatusBadge status={project.status} />
-                    <TypeBadge type={project.type} />
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
+              onClick={() => setShowModal(false)}
+            >
+              <div className="bg-foreground/60 dark:bg-background/90 absolute inset-0 backdrop-blur-xl" />
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                className="bg-card border-border relative max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl border shadow-2xl sm:rounded-3xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Compact hero */}
+                <div className="relative h-32 overflow-hidden sm:h-40 md:h-48">
+                  <img
+                    src={project.cover}
+                    alt={project.title}
+                    className="size-full object-cover"
+                  />
+                  <div className="from-card via-card/50 absolute inset-0 bg-gradient-to-t to-transparent" />
+
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="border-border/60 bg-background/70 text-foreground hover:bg-background/90 absolute right-3 top-3 z-10 rounded-full border p-1.5 backdrop-blur-md transition-all duration-200"
+                  >
+                    <X className="size-4" />
+                  </button>
+
+                  {/* Title */}
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                    <h2 className="text-foreground text-xl font-black tracking-tight sm:text-2xl">
+                      {project.title}
+                    </h2>
                   </div>
                 </div>
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="rounded-lg border border-transparent p-2 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10"
-                >
-                  ✕
-                </button>
-              </div>
 
-              {/* Modal Tabs */}
-              <div className="border-b border-white/20 bg-white/5 backdrop-blur-sm">
-                <nav className="flex space-x-8 px-6">
-                  {['overview', 'features', 'tech'].map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`border-b-2 px-1 py-4 text-sm font-medium transition-all duration-300 ${
-                        activeTab === tab
-                          ? 'border-primary text-primary'
-                          : 'text-muted-foreground hover:text-foreground border-transparent'
-                      }`}
-                    >
-                      {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                    </button>
-                  ))}
-                </nav>
-              </div>
+                {/* Scrollable content */}
+                <div className="max-h-[calc(90vh-8rem)] overflow-y-auto p-4 sm:max-h-[calc(90vh-10rem)] sm:p-6">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
 
-              {/* Modal Content */}
-              <div className="max-h-[60vh] overflow-y-auto p-6">
-                {activeTab === 'overview' && (
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="mb-2 text-lg font-semibold">
-                        Project Overview
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {project.description}
-                      </p>
+                  {/* Tech stack */}
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="border-primary/15 bg-primary/5 text-primary rounded-md border px-2 py-0.5 text-[10px] font-semibold tracking-wide"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Challenge / Solution / Impact */}
+                  <div className="mt-5 space-y-3 sm:mt-6">
+                    {[
+                      { label: 'Challenge', text: project.challenge },
+                      { label: 'Solution', text: project.solution },
+                      { label: 'Impact', text: project.impact },
+                    ].map((item) => (
+                      <div key={item.label}>
+                        <span className="text-primary text-[11px] font-black uppercase tracking-widest">
+                          {item.label}
+                        </span>
+                        <p className="text-muted-foreground mt-1 text-[13px] leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Key features */}
+                  {project.keyFeatures.length > 0 && (
+                    <div className="mt-5 sm:mt-6">
+                      <span className="text-primary text-[11px] font-black uppercase tracking-widest">
+                        Features
+                      </span>
+                      <ul className="text-muted-foreground mt-2 grid gap-1.5 text-[13px] leading-relaxed sm:grid-cols-2">
+                        {project.keyFeatures.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="text-primary/50 mt-1 text-[8px]">
+                              &#8226;
+                            </span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+                  )}
 
-                    <div>
-                      <h4 className="mb-2 font-semibold">Challenge</h4>
-                      <p className="text-muted-foreground text-sm">
-                        {project.challenge}
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="mb-2 font-semibold">Solution</h4>
-                      <p className="text-muted-foreground text-sm">
-                        {project.solution}
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="mb-2 font-semibold">Impact</h4>
-                      <p className="text-muted-foreground text-sm">
-                        {project.impact}
-                      </p>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-3 pt-4">
+                  {/* Actions */}
+                  {(project.liveUrl || project.githubUrl) && (
+                    <div className="mt-5 flex gap-3 sm:mt-6">
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-primary/90 hover:bg-primary text-primary-foreground border-primary/20 inline-flex items-center gap-2 rounded-lg border px-4 py-2 font-medium backdrop-blur-sm transition-all duration-300"
+                          className="text-primary ring-primary/20 hover:bg-primary/15 bg-primary/10 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold tracking-wide ring-1 transition-all duration-200"
                         >
-                          <ExternalLink className="size-4" />
-                          Visit Live Site
+                          <ExternalLink className="size-3.5" />
+                          Visit Site
                         </a>
                       )}
                       {project.githubUrl && (
@@ -282,57 +300,22 @@ export const Project = ({ project, index }: TProps) => {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-medium backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                          className="border-border text-foreground bg-muted/30 hover:bg-muted/50 inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-bold tracking-wide transition-all duration-200"
                         >
-                          <Github className="size-4" />
-                          View Source Code
+                          <Github className="size-3.5" />
+                          Source
                         </a>
                       )}
                     </div>
-                  </div>
-                )}
-
-                {activeTab === 'features' && (
-                  <div>
-                    <h3 className="mb-4 text-lg font-semibold">Key Features</h3>
-                    <ul className="space-y-2">
-                      {project.keyFeatures.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle className="mt-0.5 size-5 shrink-0 text-green-500" />
-                          <span className="text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {activeTab === 'tech' && (
-                  <div>
-                    <h3 className="mb-4 text-lg font-semibold">
-                      Technologies Used
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-                      {project.technologies.map((tech) => (
-                        <div
-                          key={tech}
-                          className="rounded-lg border border-white/10 bg-white/10 p-3 text-center backdrop-blur-sm"
-                        >
-                          <span className="font-medium">{tech}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>,
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>,
           document.body
         )}
     </>
   );
 };
 
-// Export as default for easier importing
 export default Project;

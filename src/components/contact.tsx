@@ -3,12 +3,11 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import { Send } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 
 import { sendEmailAction } from '@/actions/send-email';
-import { Button } from '@/components/button';
-import { Icons } from '@/components/icons';
 import { SectionHeading } from '@/components/section-heading';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { formSchema, TFormSchema } from '@/lib/form-schema';
@@ -20,7 +19,7 @@ export const Contact = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TFormSchema>({ resolver: zodResolver(formSchema) });
 
   const onSubmit = async (values: TFormSchema) => {
@@ -39,96 +38,94 @@ export const Contact = () => {
     <motion.section
       ref={ref}
       id="contact"
-      className="my-10 w-full scroll-mt-28 md:mb-20"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
+      className="my-10 w-full scroll-mt-28 px-4 md:mb-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
     >
       <SectionHeading
-        heading="Get In Touch"
+        heading="Say Hi"
         content={
           <>
-            Please contact me directly at{' '}
-            <Button
-              variant="link"
-              className="text-muted-foreground hover:text-foreground h-fit p-0 font-medium underline transition-colors"
-              asChild
+            Shoot me an email at{' '}
+            <Link
+              href="mailto:adhvait.jadav@gmail.com"
+              className="text-primary hover:underline"
             >
-              <Link href="mailto:skolakmichal1@gmail.com">
-                adhvait.jadav@gmail.com
-              </Link>
-            </Button>{' '}
-            or through this form.
+              adhvait.jadav@gmail.com
+            </Link>{' '}
+            or use the form below. Either works.
           </>
         }
       />
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center gap-5"
+        className="mx-auto flex max-w-xl flex-col gap-4"
       >
-        <div className="w-full max-w-xl">
+        <div>
           <label
             htmlFor="email"
             className={cn(
-              'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+              'mb-1.5 block text-sm font-semibold',
               errors.email?.message && 'text-destructive'
             )}
           >
-            Email
+            Your email
           </label>
           <input
             type="email"
             id="email"
-            placeholder="example@gmail.com"
+            placeholder="you@example.com"
             {...register('email')}
             className={cn(
-              'border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring mt-2 flex h-10 w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-              errors.email?.message && 'border-destructive'
+              'placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 bg-muted/30 w-full rounded-xl border px-4 py-3 text-sm outline-none transition-all focus:ring-1',
+              errors.email?.message ? 'border-destructive' : 'border-border'
             )}
           />
           {errors.email?.message && (
-            <p className="text-destructive mt-1 text-sm">
+            <p className="text-destructive mt-1 text-xs">
               {errors.email?.message}
             </p>
           )}
         </div>
-        <div className="w-full max-w-xl">
+
+        <div>
           <label
             htmlFor="message"
             className={cn(
-              'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+              'mb-1.5 block text-sm font-semibold',
               errors.message?.message && 'text-destructive'
             )}
           >
-            Message
+            What&apos;s up?
           </label>
           <textarea
             id="message"
-            placeholder="Type your message here"
+            placeholder="Tell me about your project, idea, or just say hey..."
             {...register('message')}
+            rows={6}
             className={cn(
-              'border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring mt-2 flex h-60 w-full resize-none rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-              errors.message?.message && 'border-destructive'
+              'placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 bg-muted/30 w-full resize-none rounded-xl border px-4 py-3 text-sm outline-none transition-all focus:ring-1',
+              errors.message?.message ? 'border-destructive' : 'border-border'
             )}
-          ></textarea>
+          />
           {errors.message?.message && (
-            <p className="text-destructive mt-1 text-sm">
+            <p className="text-destructive mt-1 text-xs">
               {errors.message?.message}
             </p>
           )}
         </div>
-        <Button size="lg">
-          Submit <Icons.arrowRight className="ml-2 size-4" />
-        </Button>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-primary text-primary-foreground flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold tracking-wide transition-all duration-200 hover:opacity-90 disabled:opacity-50"
+        >
+          <Send className="size-4" />
+          {isSubmitting ? 'Sending...' : 'Send it'}
+        </button>
       </form>
     </motion.section>
   );

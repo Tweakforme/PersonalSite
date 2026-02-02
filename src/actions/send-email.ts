@@ -5,9 +5,13 @@ import { Resend } from 'resend';
 import { env } from '@/env.mjs';
 import { TFormSchema } from '@/lib/form-schema';
 
-const resend = new Resend(env.RESEND_API_KEY);
+const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
 
 export const sendEmailAction = async ({ email, message }: TFormSchema) => {
+  if (!resend) {
+    return { error: 'Email service is not configured.' };
+  }
+
   try {
     await resend.emails.send({
       from: 'Adhvait Jadav <contact@adhvaitjadav.com>',

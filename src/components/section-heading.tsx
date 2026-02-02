@@ -7,10 +7,14 @@ type TProps = {
 
 export const SectionHeading = ({ heading, content }: TProps) => {
   return (
-    <div className="mb-10 text-center">
-      <h2 className="font-heading text-3xl font-semibold">{heading}</h2>
+    <div className="mb-8 text-center sm:mb-12">
+      <h2 className="font-heading text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">
+        {heading}
+      </h2>
       {content && (
-        <p className="text-muted-foreground mt-3 text-sm">{content}</p>
+        <p className="text-muted-foreground mt-3 text-sm tracking-wide">
+          {content}
+        </p>
       )}
     </div>
   );

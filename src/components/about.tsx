@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -15,33 +13,30 @@ export const About = () => {
     <motion.section
       ref={ref}
       id="about"
-      className="my-10 flex w-full flex-col items-center scroll-mt-28 md:mb-20"
+      className="my-10 flex w-full scroll-mt-28 flex-col items-center px-4 md:mb-20"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
     >
       <SectionHeading heading="About Me" />
 
-      <div className="mt-4 max-w-2xl text-center">
-        <p className="leading-relaxed text-muted-foreground">
-          I&apos;m AJ! A full-stack developer based in Calgary, Alberta. I lived
-          in BC for about eight years between Kamloops and Vancouver, and
-          made the switch to Alberta recently. I believe in getting shit
-          done (the right way). I build clean, fast web experiences, and I use AI
-          in my workflow to move faster and create sharper solutions. I
-          like taking ideas and turning them into something real, whether
-          it&apos;s a full product, a tool, or a custom site.
-          <br />
-          <br />
-          Outside tech, I&apos;m pretty active. I train BJJ when I can, lift
-          regularly, like winter sports, listen to music, and follow UFC. I
-          like keeping life simple by staying sharp, and keeping on levelling up.
+      <div className="mt-4 max-w-2xl space-y-4 text-center">
+        <p className="text-muted-foreground text-sm leading-relaxed sm:text-[15px]">
+          I go by AJ. Full-stack developer based in Calgary, Alberta. Spent
+          about eight years bouncing between Kamloops and Vancouver before
+          landing here. I&apos;m the type to just get it done, the right way,
+          not the lazy way. I build things that are fast, clean, and actually
+          useful. I lean on AI to move quicker and ship sharper because why
+          wouldn&apos;t you.
         </p>
-
-        <p className="mt-4 text-muted-foreground">
-          I&apos;m open to job opportunities where I can contribute, learn, and
-          grow. If you have something that matches my skills, feel free to reach
-          out.
+        <p className="text-muted-foreground text-sm leading-relaxed sm:text-[15px]">
+          When I&apos;m not coding I&apos;m probably training BJJ, lifting,
+          hitting the slopes, or watching UFC. I keep things simple. Stay sharp,
+          keep levelling up, don&apos;t overthink it.
+        </p>
+        <p className="text-muted-foreground text-xs opacity-60 sm:text-sm">
+          Always open to the right opportunity. If you&apos;ve got something
+          interesting, hit me up.
         </p>
       </div>
 

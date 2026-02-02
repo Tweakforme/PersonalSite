@@ -20,8 +20,77 @@ export const links = [
   { name: 'Contact', hash: '#contact' },
 ] as const;
 
-// Enhanced project data structure with all your projects
 export const projectsData = [
+  {
+    title: 'Chilly Moose',
+    description:
+      'Shopify e-commerce store for Chilly Moose, built collaboratively in a developer cohort. Focused on storefront design, product page optimization, and seamless shopping experience.',
+    shortDescription:
+      'Shopify store built in a developer cohort with custom theme work and storefront optimization.',
+    cover: '/images/chillymoose/1.png',
+    screenshots: ['/images/chillymoose/1.png'],
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'JavaScript',
+      'CSS',
+      'Theme Customization',
+    ],
+    liveUrl: 'https://chillymoose.ca',
+    githubUrl: null,
+    status: 'completed',
+    type: 'client',
+    keyFeatures: [
+      'Custom Shopify theme development',
+      'Product page optimization',
+      'Responsive storefront design',
+      'Collaborative development in cohort',
+      'Performance-optimized shopping experience',
+    ],
+    challenge:
+      'Building a polished, conversion-optimized Shopify store collaboratively with another developer while maintaining consistent code quality.',
+    solution:
+      'Leveraged Shopify Liquid templating with custom CSS and JavaScript for a cohesive shopping experience, with structured code reviews in the cohort.',
+    impact:
+      'Delivered a professional e-commerce storefront that drives conversions with fast load times and intuitive navigation.',
+  },
+  {
+    title: 'The EV Store',
+    description:
+      'Full-scale MERN stack e-commerce platform for Tesla parts with advanced inventory management.',
+    shortDescription:
+      'Full e-commerce store selling Tesla parts with 500+ products and integrated payment processing.',
+    cover: '/images/evstore/1.png',
+    screenshots: ['/images/evstore/1.png', '/images/evstore/2.png'],
+    technologies: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'Medusa',
+      'Stripe',
+      'ShipStation',
+    ],
+    liveUrl: 'https://theevstore.ca',
+    githubUrl: null,
+    status: 'in-development',
+    type: 'client',
+    keyFeatures: [
+      '500+ Tesla parts inventory',
+      'Stripe payment integration',
+      'ShipStation shipping automation',
+      'Medusa backend architecture',
+      'Advanced product search',
+      'Inventory management system',
+      'Order tracking and fulfillment',
+    ],
+    challenge:
+      'Building a comprehensive e-commerce platform with complex inventory management and multiple integrations.',
+    solution:
+      'Implementing MERN stack with Medusa backend for scalable e-commerce operations and automated fulfillment.',
+    impact:
+      'Creating specialized Tesla parts marketplace with streamlined ordering and fulfillment process.',
+  },
   {
     title: 'Hodder Construction',
     description:
@@ -32,7 +101,7 @@ export const projectsData = [
     screenshots: ['/images/hodder/1.png'],
     technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'PHP'],
     liveUrl: 'https://www.hodder.ca',
-    githubUrl: null, // Still in development
+    githubUrl: null,
     status: 'completed',
     type: 'client',
     keyFeatures: [
@@ -71,7 +140,7 @@ export const projectsData = [
       'SMTP',
     ],
     liveUrl: 'https://www.rentalskamloops.ca',
-    githubUrl: null, // WordPress site
+    githubUrl: null,
     status: 'completed',
     type: 'client',
     keyFeatures: [
@@ -130,7 +199,7 @@ export const projectsData = [
       'Custom Tesla vehicle marketplace with dynamic listings and responsive design.',
     shortDescription:
       'Custom site for Tesla car listings that are pre-owned with dynamic pages.',
-    cover: '/images/tesla/1.png', // You'll need to add these images
+    cover: '/images/tesla/1.png',
     screenshots: ['/images/tesla/1.png', '/images/tesla/2.png'],
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Dynamic Routing'],
     liveUrl: 'https://cars.theevstore.ca',
@@ -163,7 +232,7 @@ export const projectsData = [
     screenshots: ['/images/raven/1.webp'],
     technologies: ['Shopify', 'Dawn Theme', 'HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://www.ravenreads.com',
-    githubUrl: null, // Shopify store
+    githubUrl: null,
     status: 'discontinued',
     type: 'client',
     keyFeatures: [
@@ -196,8 +265,8 @@ export const projectsData = [
       'Tailwind CSS',
       'Excel.js',
     ],
-    liveUrl: null, // Internal app
-    githubUrl: null, // Private/internal
+    liveUrl: null,
+    githubUrl: null,
     status: 'completed',
     type: 'client',
     keyFeatures: [
@@ -216,43 +285,6 @@ export const projectsData = [
       'Built Express.js backend with React frontend, integrated Excel generation for weekly reports with employee signatures and dynamic profile management.',
     impact:
       'Streamlined employee time tracking and payroll processing with automated weekly reporting and reduced administrative overhead.',
-  },
-  {
-    title: 'The EV Store',
-    description:
-      'Full-scale MERN stack e-commerce platform for Tesla parts with advanced inventory management.',
-    shortDescription:
-      'Full e-commerce store selling Tesla parts with 500+ products and integrated payment processing.',
-    cover: '/images/evstore/1.png', // Updated path for EV store images
-    screenshots: ['/images/evstore/1.png', '/images/evstore/2.png'],
-    technologies: [
-      'MongoDB',
-      'Express.js',
-      'React',
-      'Node.js',
-      'Medusa',
-      'Stripe',
-      'ShipStation',
-    ],
-    liveUrl: 'https://theevstore.ca',
-    githubUrl: null, // Private/commercial
-    status: 'in-development',
-    type: 'client',
-    keyFeatures: [
-      '500+ Tesla parts inventory',
-      'Stripe payment integration',
-      'ShipStation shipping automation',
-      'Medusa backend architecture',
-      'Advanced product search',
-      'Inventory management system',
-      'Order tracking and fulfillment',
-    ],
-    challenge:
-      'Building a comprehensive e-commerce platform with complex inventory management and multiple integrations.',
-    solution:
-      'Implementing MERN stack with Medusa backend for scalable e-commerce operations and automated fulfillment.',
-    impact:
-      'Creating specialized Tesla parts marketplace with streamlined ordering and fulfillment process.',
   },
 ] as const;
 
@@ -273,6 +305,27 @@ export const experiencesData: Experience[] = [
       'Hydrogen (exposure)',
     ],
     projects: [],
+  },
+  {
+    title: 'Shopify Developer',
+    company: 'Chilly Moose, Remote',
+    description:
+      'Worked in a developer cohort to build and customize the Chilly Moose Shopify store. Collaborated with another developer on storefront design, product pages, and theme customization.',
+    period: '2024 – 2025',
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'JavaScript',
+      'CSS',
+      'Theme Customization',
+    ],
+    projects: [
+      {
+        name: 'Chilly Moose Store',
+        summary:
+          'Full Shopify storefront build with custom theme work and product page optimization.',
+      },
+    ],
   },
   {
     title: 'Full Stack Web Developer',

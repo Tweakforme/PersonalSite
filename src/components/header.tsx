@@ -26,7 +26,7 @@ export const Header = () => {
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sm:bg-background/80 sticky top-5 z-20 my-5 flex items-center gap-2 sm:top-10 sm:my-10 sm:rounded-full sm:border sm:px-2 sm:py-3 sm:backdrop-blur-sm"
+      className="sm:bg-background/80 sm:border-border/60 sticky top-5 z-20 my-5 flex items-center gap-2 sm:top-10 sm:my-10 sm:rounded-full sm:border sm:px-2 sm:py-3 sm:backdrop-blur-xl"
     >
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
@@ -63,12 +63,12 @@ export const Header = () => {
       </Dialog>
       <ThemeToggle className="bg-background/80 backdrop-blur-sm sm:hidden" />
       <nav className="text-muted-foreground hidden text-sm sm:block">
-        <ul className="flex gap-5">
+        <ul className="flex gap-1">
           {links.map(({ name, hash }) => (
             <li key={name}>
               <Link
                 href={hash}
-                className="hover:text-foreground relative px-4 py-2 transition-colors"
+                className="hover:text-foreground relative rounded-full px-4 py-2 text-[13px] font-medium tracking-wide transition-colors"
                 onClick={() => {
                   setActiveSection(name);
                   setTimeOfLastClick(Date.now());
@@ -77,14 +77,14 @@ export const Header = () => {
                 {name}
                 {name === activeSection && (
                   <motion.span
-                    className="bg-muted absolute inset-0 -z-10 rounded-full"
+                    className="bg-primary/10 border-primary/20 absolute inset-0 -z-10 rounded-full border"
                     layoutId="activeSection"
                     transition={{
                       type: 'spring',
                       stiffness: 380,
                       damping: 30,
                     }}
-                  ></motion.span>
+                  />
                 )}
               </Link>
             </li>
