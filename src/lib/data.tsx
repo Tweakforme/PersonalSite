@@ -290,11 +290,11 @@ export const projectsData = [
 
 export const experiencesData: Experience[] = [
   {
-    title: 'Shopify Merchant Support Advisor',
+    title: 'Shopify Support Specialist',
     company: 'Shopify, Remote',
     description:
-      'Supported Shopify merchants globally with storefront, checkout, theme, and payment issues while leveraging AI workflows for faster, more accurate resolutions.',
-    period: 'Jul 2025 – Present',
+      'Supported Shopify merchants globally by troubleshooting storefront, checkout, theme, and payment issues. Guided theme fixes and best practices, empowered merchants to self-serve with clear explanations, and promoted entrepreneurship by helping them build sustainable online businesses. Leveraged AI workflows for faster, more accurate resolutions.',
+    period: 'Jul 2025 - Present',
     technologies: [
       'Shopify',
       'Liquid',
