@@ -331,8 +331,8 @@ export const experiencesData: Experience[] = [
     title: 'Full Stack Web Developer',
     company: 'Hodder Construction, Kamloops BC',
     description:
-      'Led full-stack development for multiple production-grade web projects.',
-    period: 'Sept 2024 – Nov 2025',
+      'Led full-stack development for multiple production-grade web projects. Please find the projects below.',
+    period: 'Sept 2024 – PRESENT',
     technologies: [
       'React',
       'Node.js',
