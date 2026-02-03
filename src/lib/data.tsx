@@ -310,8 +310,8 @@ export const experiencesData: Experience[] = [
     title: 'Shopify Developer',
     company: 'Chilly Moose, Remote',
     description:
-      'Worked in a developer cohort to build and customize the Chilly Moose Shopify store. Collaborated with another developer on storefront design, product pages, and theme customization.',
-    period: '2024 – 2025',
+      'Worked as part of a developer cohort for Chilly Moose, collaborating closely with another developer to design, build, and customize their Shopify storefront. Implemented theme customizations, optimized product pages, and contributed to overall storefront architecture and UX.',
+    period: '2025 – 2026',
     technologies: [
       'Shopify',
       'Liquid',
