@@ -5,12 +5,14 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Intro } from '@/components/intro';
 import { Projects } from '@/components/projects';
+import { ScrollProgress } from '@/components/scroll-progress';
 import { SectionDivider } from '@/components/section-divider';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 const HomePage = async () => {
   return (
     <>
+      <ScrollProgress />
       <div className="container flex flex-col items-center">
         <Header />
         <Intro />

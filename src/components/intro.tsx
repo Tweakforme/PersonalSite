@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Lock, X } from 'lucide-react';
@@ -11,11 +11,62 @@ import { Button } from '@/components/button';
 import { Icons } from '@/components/icons';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 
+const ROLES = [
+  'Full-Stack Developer',
+  'Shopify Specialist',
+  'Founder & Builder',
+];
+
+const STATS = [
+  { value: '9+', label: 'Projects Shipped' },
+  { value: '4+', label: 'Years Building' },
+  { value: '5+', label: 'Clients Served' },
+];
+
 export const Intro = () => {
   const { ref } = useSectionInView('Home');
   const [showCvModal, setShowCvModal] = useState(false);
   const [cvCode, setCvCode] = useState('');
   const [cvError, setCvError] = useState(false);
+
+  // Typewriter
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charCount, setCharCount] = useState(ROLES[0].length);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
+
+  useEffect(() => {
+    const currentRole = ROLES[roleIndex];
+    if (isPaused) {
+      const t = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 2500);
+      return () => clearTimeout(t);
+    }
+    const t = setTimeout(
+      () => {
+        if (isDeleting) {
+          if (charCount > 0) {
+            setCharCount((c) => c - 1);
+          } else {
+            setIsDeleting(false);
+            setRoleIndex((i) => (i + 1) % ROLES.length);
+          }
+        } else {
+          if (charCount < currentRole.length) {
+            setCharCount((c) => c + 1);
+          } else {
+            setIsPaused(true);
+          }
+        }
+      },
+      isDeleting ? 35 : 75
+    );
+    return () => clearTimeout(t);
+  }, [charCount, isDeleting, isPaused, roleIndex]);
+
+  const displayedRole = ROLES[roleIndex].slice(0, charCount);
 
   const handleCvDownload = () => {
     if (cvCode === '2028') {
@@ -60,9 +111,10 @@ export const Intro = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] sm:text-xs"
+        className="text-primary flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.3em] sm:text-xs"
       >
-        Full-Stack Developer
+        <span className="min-w-[14ch] text-center">{displayedRole}</span>
+        <span className="animate-pulse opacity-70">|</span>
       </motion.div>
 
       <motion.h1
@@ -143,6 +195,28 @@ export const Intro = () => {
             <Icons.github className="size-5" />
           </Link>
         </Button>
+      </motion.div>
+
+      {/* Stats row */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="flex items-center gap-5 pt-1 sm:gap-8"
+      >
+        {STATS.map((stat, i) => (
+          <div key={stat.label} className="flex items-center gap-5 sm:gap-8">
+            <div className="text-center">
+              <div className="text-primary font-heading text-xl font-black sm:text-2xl">
+                {stat.value}
+              </div>
+              <div className="text-muted-foreground text-[9px] font-medium uppercase tracking-widest sm:text-[10px]">
+                {stat.label}
+              </div>
+            </div>
+            {i < STATS.length - 1 && <div className="bg-border h-8 w-px" />}
+          </div>
+        ))}
       </motion.div>
 
       {/* CV Password Modal */}

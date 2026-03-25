@@ -22,16 +22,16 @@ export const About = () => {
 
       <div className="mt-4 max-w-2xl space-y-4 text-center">
         <p className="text-muted-foreground text-sm leading-relaxed sm:text-[15px]">
-          I go by AJ. Full-stack developer based in Calgary, Alberta. Spent
+          I&apos;m AJ, a Full-stack developer based in Calgary, Alberta. I Spent
           about eight years bouncing between Kamloops and Vancouver before
-          landing here. I&apos;m the type to just get it done, the right way,
-          not the lazy way. I build things that are fast, clean, and actually
-          useful. I lean on AI to move quicker and ship sharper because why
-          wouldn&apos;t you.
+          landing here. I&apos;m the type to just get shit done, the right way,
+          not the lazy way. I like building things that are fast, clean, and
+          actually useful. I sometimes lean on AI to move quicker and ship
+          sharper because why wouldn&apos;t you.
         </p>
         <p className="text-muted-foreground text-sm leading-relaxed sm:text-[15px]">
-          When I&apos;m not coding I&apos;m probably training BJJ, lifting,
-          hitting the slopes, or watching UFC. I keep things simple. Stay sharp,
+          When I&apos;m not building I&apos;m probably training BJJ, lifting,
+          listening to music, or watching UFC. I keep things simple. Stay sharp,
           keep levelling up, don&apos;t overthink it.
         </p>
         <p className="text-muted-foreground text-xs opacity-60 sm:text-sm">

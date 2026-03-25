@@ -22,6 +22,40 @@ export const links = [
 
 export const projectsData = [
   {
+    title: 'Furtraits',
+    description:
+      'My own pet portrait business. I built the brand, storefront, checkout, and order flow myself and launched it this year. Custom digital and physical pet portraits shipped to customers. Planning to run paid ads on TikTok, Meta, and Google to scale it up.',
+    shortDescription:
+      'My own pet portrait brand. Built the whole thing myself, live and shipping orders.',
+    cover: '/images/furtraits/1.png',
+    screenshots: ['/images/furtraits/1.png'],
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'JavaScript',
+      'Brand Design',
+      'E-commerce',
+    ],
+    liveUrl: 'https://www.furtraits.com',
+    githubUrl: null,
+    status: 'in-development',
+    type: 'personal',
+    keyFeatures: [
+      'Custom Shopify storefront',
+      'Full checkout and order flow',
+      'Custom pet portrait product pages',
+      'Brand design and identity',
+      'Digital and physical product fulfillment',
+      'Paid acquisition planned: TikTok, Meta, Google',
+    ],
+    challenge:
+      'Starting a brand from nothing with no audience, no traffic, and no revenue, while building the whole store at the same time.',
+    solution:
+      'Built the storefront and order system in Shopify myself, handled all the branding, and launched it. Paid acquisition across TikTok, Meta, and Google is the next step.',
+    impact:
+      'Live and taking orders. Acquisition campaigns planned to launch soon.',
+  },
+  {
     title: 'Chilly Moose',
     description:
       'Shopify e-commerce store for Chilly Moose, built collaboratively in a developer cohort. Focused on storefront design, product page optimization, and seamless shopping experience.',
@@ -53,43 +87,6 @@ export const projectsData = [
       'Leveraged Shopify Liquid templating with custom CSS and JavaScript for a cohesive shopping experience, with structured code reviews in the cohort.',
     impact:
       'Delivered a professional e-commerce storefront that drives conversions with fast load times and intuitive navigation.',
-  },
-  {
-    title: 'The EV Store',
-    description:
-      'Full-scale MERN stack e-commerce platform for Tesla parts with advanced inventory management.',
-    shortDescription:
-      'Full e-commerce store selling Tesla parts with 500+ products and integrated payment processing.',
-    cover: '/images/evstore/1.png',
-    screenshots: ['/images/evstore/1.png', '/images/evstore/2.png'],
-    technologies: [
-      'MongoDB',
-      'Express.js',
-      'React',
-      'Node.js',
-      'Medusa',
-      'Stripe',
-      'ShipStation',
-    ],
-    liveUrl: 'https://theevstore.ca',
-    githubUrl: null,
-    status: 'in-development',
-    type: 'client',
-    keyFeatures: [
-      '500+ Tesla parts inventory',
-      'Stripe payment integration',
-      'ShipStation shipping automation',
-      'Medusa backend architecture',
-      'Advanced product search',
-      'Inventory management system',
-      'Order tracking and fulfillment',
-    ],
-    challenge:
-      'Building a comprehensive e-commerce platform with complex inventory management and multiple integrations.',
-    solution:
-      'Implementing MERN stack with Medusa backend for scalable e-commerce operations and automated fulfillment.',
-    impact:
-      'Creating specialized Tesla parts marketplace with streamlined ordering and fulfillment process.',
   },
   {
     title: 'Hodder Construction',
@@ -223,33 +220,6 @@ export const projectsData = [
       'Provided streamlined Tesla shopping experience with detailed vehicle information and mobile-optimized interface.',
   },
   {
-    title: 'Raven Reads Books',
-    description:
-      'Shopify e-commerce store for Canadian Indigenous book club with custom theme modifications.',
-    shortDescription:
-      'Shopify theme customization, marketing pages, and QA testing for Canadian Indigenous book club.',
-    cover: '/images/raven/1.webp',
-    screenshots: ['/images/raven/1.webp'],
-    technologies: ['Shopify', 'Dawn Theme', 'HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://www.ravenreads.com',
-    githubUrl: null,
-    status: 'discontinued',
-    type: 'client',
-    keyFeatures: [
-      'Custom Shopify Dawn theme modifications',
-      'Product catalog management',
-      'Marketing page development',
-      'QA testing and optimization',
-      'Indigenous book specialization',
-    ],
-    challenge:
-      'Customizing Shopify theme to reflect Indigenous culture while maintaining e-commerce functionality.',
-    solution:
-      'Modified Dawn theme with cultural sensitivity, added custom product pages and marketing content.',
-    impact:
-      'Supported Canadian Indigenous book community with specialized online bookstore platform.',
-  },
-  {
     title: 'Employee Timesheet App',
     description:
       'Internal Express.js dashboard for employee time tracking with automated Excel reporting and dynamic employee management.',
@@ -286,6 +256,70 @@ export const projectsData = [
     impact:
       'Streamlined employee time tracking and payroll processing with automated weekly reporting and reduced administrative overhead.',
   },
+  {
+    title: 'The EV Store',
+    description:
+      'Full-scale MERN stack e-commerce platform for Tesla parts with advanced inventory management.',
+    shortDescription:
+      'Full e-commerce store selling Tesla parts with 500+ products and integrated payment processing.',
+    cover: '/images/evstore/1.png',
+    screenshots: ['/images/evstore/1.png', '/images/evstore/2.png'],
+    technologies: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'Medusa',
+      'Stripe',
+      'ShipStation',
+    ],
+    liveUrl: null,
+    githubUrl: null,
+    status: 'discontinued',
+    type: 'client',
+    keyFeatures: [
+      '500+ Tesla parts inventory',
+      'Stripe payment integration',
+      'ShipStation shipping automation',
+      'Medusa backend architecture',
+      'Advanced product search',
+      'Inventory management system',
+      'Order tracking and fulfillment',
+    ],
+    challenge:
+      'Building a comprehensive e-commerce platform with complex inventory management and multiple integrations.',
+    solution:
+      'Implementing MERN stack with Medusa backend for scalable e-commerce operations and automated fulfillment.',
+    impact:
+      'Creating specialized Tesla parts marketplace with streamlined ordering and fulfillment process.',
+  },
+  {
+    title: 'Raven Reads Books',
+    description:
+      'Shopify e-commerce store for Canadian Indigenous book club with custom theme modifications.',
+    shortDescription:
+      'Shopify theme customization, marketing pages, and QA testing for Canadian Indigenous book club.',
+    cover: '/images/raven/1.webp',
+    screenshots: ['/images/raven/1.webp'],
+    technologies: ['Shopify', 'Dawn Theme', 'HTML', 'CSS', 'JavaScript'],
+    liveUrl: null,
+    githubUrl: null,
+    status: 'discontinued',
+    type: 'client',
+    keyFeatures: [
+      'Custom Shopify Dawn theme modifications',
+      'Product catalog management',
+      'Marketing page development',
+      'QA testing and optimization',
+      'Indigenous book specialization',
+    ],
+    challenge:
+      'Customizing Shopify theme to reflect Indigenous culture while maintaining e-commerce functionality.',
+    solution:
+      'Modified Dawn theme with cultural sensitivity, added custom product pages and marketing content.',
+    impact:
+      'Supported Canadian Indigenous book community with specialized online bookstore platform.',
+  },
 ] as const;
 
 export const experiencesData: Experience[] = [
@@ -293,8 +327,8 @@ export const experiencesData: Experience[] = [
     title: 'Shopify Support Specialist',
     company: 'Shopify, Remote',
     description:
-      'Supported Shopify merchants globally by troubleshooting storefront, checkout, theme, and payment issues. Guided theme fixes and best practices, empowered merchants to self-serve with clear explanations, and promoted entrepreneurship by helping them build sustainable online businesses. Leveraged AI workflows for faster, more accurate resolutions.',
-    period: 'Jul 2025 - Present',
+      "Supported Shopify merchants globally on storefront, checkout, Liquid, payments, and app issues with consistently high CSAT using AI-assisted workflows. Built and shipped two internal tools during Shopify's 3-day Hack-days — one deployed across the entire advisor team. Onboarded new team members through AI-assisted workflows and tooling best practices.",
+    period: 'Jul 2025 – Present',
     technologies: [
       'Shopify',
       'Liquid',
@@ -304,26 +338,16 @@ export const experiencesData: Experience[] = [
       'Claude',
       'Hydrogen (exposure)',
     ],
-    projects: [],
-  },
-  {
-    title: 'Shopify Developer',
-    company: 'Chilly Moose, Remote',
-    description:
-      'Worked as part of a developer cohort for Chilly Moose, collaborating closely with another developer to design, build, and customize their Shopify storefront. Implemented theme customizations, optimized product pages, and contributed to overall storefront architecture and UX.',
-    period: '2025 – 2026',
-    technologies: [
-      'Shopify',
-      'Liquid',
-      'JavaScript',
-      'CSS',
-      'Theme Customization',
-    ],
     projects: [
       {
-        name: 'Chilly Moose Store',
+        name: 'Dark Mode for Shopify Admin',
         summary:
-          'Full Shopify storefront build with custom theme work and product page optimization.',
+          'Internal theme toggle built during Hack-days and adopted across the team.',
+      },
+      {
+        name: 'AI Advisor Swarm',
+        summary:
+          'Autonomous agent deployed across the entire Shopify advisor team — drafts merchant replies, surfaces account history, and retrieves Help Center articles live during chats.',
       },
     ],
   },
@@ -332,7 +356,7 @@ export const experiencesData: Experience[] = [
     company: 'Hodder Construction, Kamloops BC',
     description:
       'Led full-stack development for multiple production-grade web projects. Please find the projects below.',
-    period: 'Sept 2024 – PRESENT',
+    period: 'Sep 2024 – Feb 2026',
     technologies: [
       'React',
       'Node.js',
@@ -374,6 +398,43 @@ export const experiencesData: Experience[] = [
     ],
   },
   {
+    title: 'Founder & Developer',
+    company: 'Furtraits, Remote',
+    description:
+      'My own business. Built furtraits.com from the ground up, a pet portrait brand selling digital and physical products. Handled the brand, storefront, checkout, and order flow myself. Currently running paid ads on TikTok, Meta, and Google to grow it.',
+    period: '2026 – Present',
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'JavaScript',
+      'TikTok Ads',
+      'Meta Ads',
+      'Google Ads',
+    ],
+    projects: [],
+  },
+  {
+    title: 'Shopify Developer',
+    company: 'Chilly Moose, Remote',
+    description:
+      'Worked as part of a developer cohort for Chilly Moose, collaborating closely with another developer to design, build, and customize their Shopify storefront. Implemented theme customizations, optimized product pages, and contributed to overall storefront architecture and UX.',
+    period: 'Oct 2025 – Feb 2026',
+    technologies: [
+      'Shopify',
+      'Liquid',
+      'JavaScript',
+      'CSS',
+      'Theme Customization',
+    ],
+    projects: [
+      {
+        name: 'Chilly Moose Store',
+        summary:
+          'Full Shopify storefront build with custom theme work and product page optimization.',
+      },
+    ],
+  },
+  {
     title: 'Technical Support Specialist',
     company: 'Teleperformance (Apple Support), Remote',
     description:
@@ -403,16 +464,16 @@ export const experiencesData: Experience[] = [
 ] as const;
 
 export const skillsData = [
-  { icon: <Icons.html className="size-12" /> },
-  { icon: <Icons.css className="size-12" /> },
-  { icon: <Icons.sass className="size-12" /> },
-  { icon: <Icons.tailwind className="size-12" /> },
-  { icon: <Icons.javascript className="size-12" /> },
-  { icon: <Icons.typescript className="size-12" /> },
-  { icon: <Icons.react className="size-12" /> },
-  { icon: <Icons.redux className="size-12" /> },
-  { icon: <Icons.nextjs className="size-12" /> },
-  { icon: <Icons.nestjs className="size-12" /> },
-  { icon: <Icons.prisma className="size-12" /> },
-  { icon: <Icons.docker className="size-12" /> },
+  { icon: <Icons.html className="size-12" />, name: 'HTML' },
+  { icon: <Icons.css className="size-12" />, name: 'CSS' },
+  { icon: <Icons.sass className="size-12" />, name: 'Sass' },
+  { icon: <Icons.tailwind className="size-12" />, name: 'Tailwind' },
+  { icon: <Icons.javascript className="size-12" />, name: 'JavaScript' },
+  { icon: <Icons.typescript className="size-12" />, name: 'TypeScript' },
+  { icon: <Icons.react className="size-12" />, name: 'React' },
+  { icon: <Icons.redux className="size-12" />, name: 'Redux' },
+  { icon: <Icons.nextjs className="size-12" />, name: 'Next.js' },
+  { icon: <Icons.nestjs className="size-12" />, name: 'NestJS' },
+  { icon: <Icons.prisma className="size-12" />, name: 'Prisma' },
+  { icon: <Icons.docker className="size-12" />, name: 'Docker' },
 ] as const;

@@ -20,19 +20,23 @@ const fadeInAnimationVariants = {
 
 export const Skills = () => {
   return (
-    <div className="mt-10 flex w-full flex-wrap justify-between gap-10 px-5 sm:justify-center sm:px-0 md:mt-14 lg:justify-between">
-      {skillsData.map(({ icon }, index) => (
+    <div className="mt-10 grid w-full grid-cols-4 gap-8 px-5 sm:grid-cols-6 sm:gap-10 sm:px-0 md:mt-14">
+      {skillsData.map(({ icon, name }, index) => (
         <motion.div
           key={index}
           variants={fadeInAnimationVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{
-            once: true,
-          }}
+          viewport={{ once: true }}
           custom={index}
+          className="group flex flex-col items-center gap-2"
         >
-          {icon}
+          <div className="transition-transform duration-200 group-hover:scale-110">
+            {icon}
+          </div>
+          <span className="text-muted-foreground group-hover:text-foreground text-[9px] font-semibold uppercase tracking-widest transition-colors duration-200 sm:text-[10px]">
+            {name}
+          </span>
         </motion.div>
       ))}
     </div>
