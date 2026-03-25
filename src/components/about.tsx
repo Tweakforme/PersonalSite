@@ -36,7 +36,7 @@ export const About = () => {
         </p>
         <p className="text-muted-foreground text-xs opacity-60 sm:text-sm">
           Always open to the right opportunity. If you&apos;ve got something
-          interesting, hit me up.
+          interesting, hit me up!
         </p>
       </div>
 
